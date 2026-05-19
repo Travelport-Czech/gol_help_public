@@ -113,7 +113,7 @@ export const CATEGORIES: Category[] = [
       { title: "Handle bookings in GOL IBE", href: "/portal/getting-started/1-gol-ibe-2-gol-ibe-step-by-step-gol-ibe-reservations-gol-ibe-how-to-handle-bookings" },
       { title: "Handle bookings with clients", href: "/portal/getting-started/handle-bookings-with-clients" },
       { title: "Export list of bookings", href: "/portal/getting-started/export-bookings" },
-      { title: "Stop fake bookings", href: "/portal/troubleshooting/1-gol-ibe-5-gol-ibe-faqs-how-to-stop-someone-from-sending-fake-booking" },
+      { title: "Stop fake bookings", href: "/portal/getting-started/stop-fake-bookings" },
     ],
   },
   {
