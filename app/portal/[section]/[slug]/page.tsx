@@ -93,12 +93,9 @@ export default async function PortalArticlePage({
         </div>
 
         <aside className={s.articleVideoPanel}>
-          <span className={s.videoPanelLabel}>Videos</span>
-          <div className={s.videoPlaceholderWrap}>
-            <div className={s.videoPlaceholderTile}>
-              <div className={s.videoPlaceholderIcon}>▶</div>
-              <span className={s.videoPlaceholderText}>WATCH VIDEO HERE</span>
-            </div>
+          <div className={s.videoPlaceholderTile}>
+            <div className={s.videoPlaceholderIcon}>▶</div>
+            <span className={s.videoPlaceholderText}>WATCH VIDEO HERE</span>
           </div>
         </aside>
       </div>
