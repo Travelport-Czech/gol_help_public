@@ -21,7 +21,7 @@ You are welcome to :
 
 Such person became registered customer of yours.
 
-* **GOL IBE**** - ****Forgotten password** - notification is sent to the person that clicks at Forgotten password text on your GOL IBE front-end. In such case client gets the chance to create a new password to log into GOL IBE site.
+* **GOL IBE - Forgotten password** - notification is sent to the person that clicks at Forgotten password text on your GOL IBE front-end. In such case client gets the chance to create a new password to log into GOL IBE site.
 
 * **Air tickets - Booking created without attachment and PNR**- anytime someone creates a booking on your GOL IBE front-end this notification goes to the client as confirmation.
 * **Air tickets - Booking created** with attachment and PNR- anytime someone creates a booking on your GOL IBE front-end this notification goes to agency and dealers.

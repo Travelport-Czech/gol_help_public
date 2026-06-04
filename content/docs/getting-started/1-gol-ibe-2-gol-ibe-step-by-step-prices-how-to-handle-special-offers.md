@@ -14,7 +14,7 @@ Departures and arrivals for automatically suggested special offers are preset fr
 
 **How to handle automatically suggested special offers in admin console?** 
 
-**How can you publish special offer on your ****GOL IBE**** front-end?** 
+**How can you publish special offer on your GOL IBE front-end?** 
 
 This is the way how unpublished offers look like.
 
@@ -152,4 +152,3 @@ If both availability and the fare exist - are you able to create the booking via
 
 **How does special offer look like on front-end?** 
 
-FYI, special offes that look like this way:

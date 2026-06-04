@@ -12,25 +12,25 @@ In the back office, go to **Prices - Commissions and discounts**.
 
 You may do there the following: 
 
-**1) ADD A RULE** - to create new rule
+1. **ADD A RULE** — to create new rule
 
-**2) DETAIL** - this  button enables you to see the detail of already created rule
+2. **DETAIL** — this  button enables you to see the detail of already created rule
 
-**3) EDIT** - to edit already existing rule.
+3. **EDIT** — to edit already existing rule.
 
-**3) COPY** - to create a copy 
+3. **COPY** — to create a copy 
 
-**4) DELETE** - to get rid off the rule you do not want to use anymore
+4. **DELETE** — to get rid off the rule you do not want to use anymore
 
 Below you may read more how to add a rule.
 
-**1) ADD A RULE** - just click at button **Add a rule** in the right upper corner.
+1. **ADD A RULE** — just click at button **Add a rule** in the right upper corner.
 
 a) **Priority** - specify from 1 up higher the priority of the rule.
 
 b) **Four options** - choose from 4 listed options for your rule. 
 
-**3) AIRLINES** - specify for which carrier should this rule apply for. Choose one desired carrier from the section **Plating carrier.**
+3. **AIRLINES** — specify for which carrier should this rule apply for. Choose one desired carrier from the section **Plating carrier.**
 
 **a) Marketing carrier:**
 
@@ -48,45 +48,41 @@ b) **Four options** - choose from 4 listed options for your rule.
 
 Please note that for each carrier there must be a rule created.
 
-**4) FLIGHT RESTRICTIONS** - you may choose from the list of restrictions if you wish to.
+4. **FLIGHT RESTRICTIONS** — you may choose from the list of restrictions if you wish to.
 
 ! Please note that flight numbers must be inserted in 4-digit format. So if flight number is e.g.202 you have to insert it in the following format: 0202.
 
-**5) COMMISSION/DISCOUNT AMOUNT** - specify type and the height of commission/discount.
+5. **COMMISSION/DISCOUNT AMOUNT** — specify type and the height of commission/discount.
 
 a) **Fixed** - a fixed amount of commission/discount in agency's currency.
 
 b) **In percents** - a percentage amount of commission/discount calculated from the amoun of the fare.
 
-**6) ROUTING** - you may specify from the list of options the restrictions on Origin and Destination.
+6. **ROUTING** — you may specify from the list of options the restrictions on Origin and Destination.
 
 * **Without restrictions** - for any origin and destination.
 * **IATA code** - IATA code of the destination.
 * **Type of destination** - a continent or other defined sets of destinations.
 * **Country - Type of destination** - a continent or other defined sets of destinations.
 
-**7) RULE IS APPLICABLE FOR** - just tick one of the options, if you wish to
+7. **RULE IS APPLICABLE FOR** — just tick one of the options, if you wish to
 
 * **One way flights** - if ticked, the rule applies only for one-way flights.
 * **Return flights** - if ticked, the rule applies only for return flights.
 * **Both options** - if ticked, the rule applies for both types of journey.
 
-**8) CABIN CLASS** - here you may specify restrictions on cabin class
+8. **CABIN CLASS** — here you may specify restrictions on cabin class
 
-**9) FARES, BOOKING CLASSES, AND PASSENGER TYPE** - here you may specify restrictions on fares, booking classes and type of passengers
+9. **FARES, BOOKING CLASSES, AND PASSENGER TYPE** — here you may specify restrictions on fares, booking classes and type of passengers
 
 **10) TIME PERIODS -** in this section you choose the time period which is the rule valid for. Also you specify the dates of departures and returns the rule applies for.
 
 * **Sales (ticketing) since - till -** to set up the period during which the commission is active.
 * **Departures (Returns) since - till - to** set up the allowed date range for the journey.
 
-**11) SAVE** - press when done with the rule creation
-
-**----------------------------------------------------------------------------------------------------**
+11. **SAVE** — press when done with the rule creation
 
 **Rules *****Use as commission***** and *****Use as discount***** can be used together, or separately. You may want to set a discount on tickets in the amount of your earned commission, and then it is convenient for your to set this up with a single rule.**
-
-**----------------------------------------------------------------------------------------------------**
 
 ## How can you test out the rules?
 
