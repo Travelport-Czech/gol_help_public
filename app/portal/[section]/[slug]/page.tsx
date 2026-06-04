@@ -94,7 +94,12 @@ export default async function PortalArticlePage({
 
         <aside className={s.articleVideoPanel}>
           <span className={s.videoPanelLabel}>Videos</span>
-          <p className={s.videoPanelEmpty}>Video tutorials for this topic will appear here.</p>
+          <div className={s.videoPlaceholderWrap}>
+            <div className={s.videoPlaceholderTile}>
+              <div className={s.videoPlaceholderIcon}>▶</div>
+              <span className={s.videoPlaceholderText}>WATCH VIDEO HERE</span>
+            </div>
+          </div>
         </aside>
       </div>
 
