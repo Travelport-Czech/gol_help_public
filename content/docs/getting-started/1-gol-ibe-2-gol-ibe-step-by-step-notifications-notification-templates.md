@@ -1,10 +1,8 @@
 # Notification templates
 
 1. **How to get to section Notification templates?**
-
-1\) Log into admin console.
-
-2\) Go to the section Notifications - Notification templates.
+1. Log into admin console.
+2. Go to the section Notifications - Notification templates.
 
 You will find all notification templates in this section.
 
@@ -32,14 +30,10 @@ Such person became registered customer of yours.
 * All notifications their subject starts with "Travelfusion" expression relate to Travelfusion content. 
 
 3. **How to edit the way notification looks like?**
-
-1\) Log into administration console.
-
-2\) Go to the section **Notification templates** .
-
-3\) Choose the notification you would like to manage.
-
-4\) Click at button **EDIT.** 
+1. Log into administration console.
+2. Go to the section **Notification templates** .
+3. Choose the notification you would like to manage.
+4. Click at button **EDIT.** 
 
 ( If you have more then one language versions you have to choose from the list of language templates and then press once again EDIT to get to the body of the template.)
 
@@ -57,7 +51,7 @@ Simple way and by using html coding.
 
       Here you may **add/change/delete** the text, logo etc.
 
-3\) As soon as you are done with updates just save changes.
+3. As soon as you are done with updates just save changes.
 
 **How to add a logo into your notification template?** 
 
@@ -78,7 +72,6 @@ If you prefer editation via HTML just click on HTML on template task bar menu an
 👍🏻**TIP FOR YOU:** If you would like to enhance the way your notifications look like, just ask your AI chat bot for some inspiration. 
 
 4. **Notification types** — will be soon updated
-
 5. **Notification recipients**
 
   You may manage the delivery of every single notification you have set up in the system.

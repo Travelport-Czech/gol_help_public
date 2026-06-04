@@ -1,9 +1,6 @@
 # How to handle bookings with clients?
 
 1. Once your clients finish booking process there will appear neutral „thank you“ sentence. 
-
-![](/images/docs/2df871919d76a702.png)
-
 2. Additionaly to it, there will be simple notification sent to your client. Such notification will be without PNR and any attachment.
 
        *The aim of such notification is to block abusers to abuse any PNR and to avoid of frauds.*

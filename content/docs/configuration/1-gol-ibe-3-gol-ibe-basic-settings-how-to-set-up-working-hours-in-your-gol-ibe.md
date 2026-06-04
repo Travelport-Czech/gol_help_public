@@ -8,17 +8,11 @@
 
 **How to manage this section?** 
 
-1\) Log into admin console.
-
-2\) Go to the section **Agency - Working hours**.
-
-3\) Click **Edit.**
-
-4\) Set up your agency business hours.
-
-5\) Save changes.
-
-![](/images/docs/7beb269ec6dd7cdc.png)
+1. Log into admin console.
+2. Go to the section **Agency - Working hours**.
+3. Click **Edit.**
+4. Set up your agency business hours.
+5. Save changes.
 
 The way example is set up means that agency will handle all bookings from 9:00am - 8pm from Monday till Friday. Every day there is half an hour for lunch. Saturday and Sunday no one handles bookings.
 
@@ -41,8 +35,6 @@ You can encounter three different situations:
 Go to **Agency - Working hours modifications**
 
 Here you can define exceptions to the set working hours, ie. to define public holidays and other days when your agency is closed. At this moment, there's no code list available for public holidays. If you need to define these days, please do so manually.
-
-![](/images/docs/3ffcd51dc609a837.png)
 
 > **If you set only a date** - it means that your agency is closed for the whole day.
 > 

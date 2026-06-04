@@ -2,8 +2,6 @@
 
 You can insert a search form into your web pages and the search will thus become part of your pages. That's all you have to do. Once the client enters where he wants to fly and confirms, he will see the offers on a new page. 
 
-![](/images/docs/b55f951a17a289d2.png)
-
 You can implement the air ticket search form two ways. Via implementing: 
 
 1. [html package](#1.-html-package) 
@@ -16,17 +14,8 @@ Below you find find step by step instructions.
 
 The big advantage of this solution is that you can fully integrate the form with the page and customize it. The implementation can be more demanding, the form contains styles and scripts that can interact with your page and any conflicts must be resolved for everything to work properly.
 
-1\) Log into the GOL IBE admin console
-
-![](/images/docs/777457d78eaffa08.png)
-
-2\) Go to the section **Dealer details** - **Front-End settings** - link **Static HTML** for download.
-
-![](/images/docs/dcedb7a1607ac3a2.png)
-
-![](/images/docs/b3c13db7c79f99c2.png)
-
-![](/images/docs/dfd52a90069b0776.png)
+1. Log into the GOL IBE admin console
+2. Go to the section **Dealer details** - **Front-End settings** - link **Static HTML** for download.
 
 > The form includes HTML, CSS, pictures and relevant scripts for implementation into your website, including the full functionality of the destination search tooltip. You can customize the form as you wish.
 

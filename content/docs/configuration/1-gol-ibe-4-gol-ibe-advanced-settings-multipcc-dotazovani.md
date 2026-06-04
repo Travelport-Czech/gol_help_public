@@ -14,16 +14,12 @@ In this section, you can create profiles for sending requests to PCCs other than
 
 List of created profiles
 
-![](/images/docs/11aca1e6b27e3962.png)
-
 **How to edit MultiPCC request profile?**
 
 * to edit the profile just click on the **Edit** button.
 * The basic settings for communication with the GDS remains the same as in Agency profile
 
 This settings also includes the section **Currency and conversion**.
-
-![](/images/docs/e9fa39b59a1bea62.png)
 
 * **Market** - selection of the market to which your HAP is connected.
 * **PCC currency in Galileo** - selection of your Galileo GDS PCC.

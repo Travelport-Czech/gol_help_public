@@ -5,7 +5,6 @@
 Special offers can be created : 
 
 1. **Manually** — by adding a special offer and defining all required parameters of the connection.
-
 2. **Automatically** — by letting the robot to generate the list of the cheapest flights to the agency´s admin console - section **Prices - Special offers extended**.
 
 This selections is done by robot on base of behaviour of agency´s clientele on their GOL IBE front-end.
@@ -19,11 +18,9 @@ Departures and arrivals for automatically suggested special offers are preset fr
 
 To publish just do the following:
 
-1\) Choose the offer you would like to publish.
-
-2\) Click **EDIT**.
-
-3\) In detail find section called **Validate by robot** /**Display: / Deactivate if quoted price is incorrect** -  tick all 3 boxes.
+1. Choose the offer you would like to publish.
+2. Click **EDIT**.
+3. In detail find section called **Validate by robot** /**Display: / Deactivate if quoted price is incorrect** -  tick all 3 boxes.
 
 In section **Restrictions** you may specify **minimum and maximum stay** 
 
@@ -37,37 +34,31 @@ Especially in the section **Bindings** we recommend to tick box for **Search tog
 
 If checked, availability is validated together with continuing segment via O\&D.
 
-4\) Save changes.
-
-5\) Go again to the line where this offer is and press **\[RUN CACHES]**.
-
-6\) Take a moment. Robot will work on it and it usually takes few minutes.
-
-7\) As soon as there are 4 hooks beside your offer it means that it is published.
+4. Save changes.
+5. Go again to the line where this offer is and press **\[RUN CACHES]**.
+6. Take a moment. Robot will work on it and it usually takes few minutes.
+7. As soon as there are 4 hooks beside your offer it means that it is published.
 
 **How to edit/add special offer manually?** 
 
 To add/edit special offer manually: 
 
-1\) Log into the admin console.
-
-2\) Go to the section **Prices - Special offer extended**. 
+1. Log into the admin console.
+2. Go to the section **Prices - Special offer extended**. 
 
 Besides the regular buttons - **DELETE/EDIT/DETAIL** (detail shows all information as well as edit, but you cannot edit it) - there are also the following functions:
 
 * To copy special offer – button **COPY**. COPY opens a new special offer for editing, including all items as the original one.
 * **RUN CACHE** button launches a robot which retrieves information about flights from the reservation system. To display the special offer at your front-end, check the *Display* box in the detail of the offer.
 
-![](/images/docs/31d21480dbe175ac.png)
-
-1\) to edit speciall offer click button **EDIT** (mandatory fields are in bold): 
+1. to edit speciall offer click button **EDIT** (mandatory fields are in bold): 
 
 * **Valid since - till** - time period during which the special offer is shown to customers on your website.
 * **Departure since - till** - time period during which departure is possible.
 * **Returns since - till** - period during which return is possible.
 * Included in the set  -defines which set the special offer belongs to. For example: Europe, Asia, Special offers for up to 5000 etc. You can display special offers on your website based on these sets.
 
-2\) Prices and fees settings
+2. Prices and fees settings
 
 * **Use a manually set up fee** - if you don't check this, the service fee is calculated based on the default settings for air ticket service fees.
 * **Ticket price** -price of tickets and taxes. The total price of air ticket + taxes is compared with the quote in the GDS, and if the price in the GDS is higher by more than 10 %, such connection will be marked as not available.
@@ -76,14 +67,14 @@ Besides the regular buttons - **DELETE/EDIT/DETAIL** (detail shows all informati
 * **Rounded** - range of rounding.
 * **Displayed final price** - the total price, ie. the combination of ***Ticket price*** and ***Service fee***. This price is shown to end customers on your website.
 
-3\) Special offer statistics 
+3. Special offer statistics 
 
 * **Laste measurement of cache** - the last time when information about flights has been retrieved.
 * **Number of avilability requests** - the number of availability requests sent during the last update of the special offer.
 * **Current price from Galileo GDS** - the result of the verification quote. The quote is done regardless of availability. GOL IBE does a maximum of 5 attempts to get a quote, combining days at the beginning of validity of the special offer, then a week later, during weekends etc. to increase the chance of getting a successful quote.
 * **Technical note:** The availability information is refreshed based on how the special offer is used by customers. If a customer finds an unavailable combination, it is no longer offered to the next customer. GOL IBE also refreshes the availability information regularly, at least once every 24 hours during the nighttime.
 
-4\) Status 
+4. Status 
 
 * **Validate by robot** - if checked, the data is automatically refreshed regularly.
 * **Display** - the special offer is shown to customers at your front-end.
@@ -93,7 +84,7 @@ Besides the regular buttons - **DELETE/EDIT/DETAIL** (detail shows all informati
 * **Found flights** - whether available flights have been found in the reservation system for the special offer.
 * **FQCS Price OK** - whether a quote has been found for the requested range.
 
-5\) Restrictions 
+5. Restrictions 
 
 Min/Max stay -  here you can restrict certain flights, in this order: 
 
@@ -105,7 +96,7 @@ You need to define each leg of the journey. Simple connections without transfer,
 
 In case of return connections, you need to do the same in the section ***Backward***. You can create the return journey by clicking either on the button ***Add backward route*** where you go through the same process as in case of the forward journey, or the button ***Create backward route automatically*** which will automatically create a mirror version of the forward journey.  
 
-6\) Forward - settings 
+6. Forward - settings 
 
 * **Origin** - IATA code of the departure point.
 * **Destination** - IATA code of the arrival point.
@@ -114,7 +105,7 @@ In case of return connections, you need to do the same in the section ***Backwar
 * **Fare Basis Code** - Fare Basis used for pricing this leg of the flight.
 * **Fare Basis Carrier** - code of the carrier to which the Fare Basis belongs (shown in Fare Display). In some cases, another marketing carrier can operate the flight using a Fare Basis of its interline partner.
 
-7\) Forward - Bindings 
+7. Forward - Bindings 
 
 * **Search together with following** - if checked, availability is verified together with the following segment based on O\&D, ie. for the whole journey. Otherwise, availability is verified for individual segments separately for each part of the journey.
 * **Inhibit status link** -  if checked, availability is not verified at the carrier via seamless availability, even if it's possible. If not checked, a higher use intensity can negatively impact the ratio between the number of requests sent to the carrier and the number of bookings, which may lead to sanctions by the carrier.

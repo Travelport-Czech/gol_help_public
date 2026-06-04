@@ -10,15 +10,8 @@ Below you find find step by step instructions.
 
 **1.html package - Recommended!** 
 
-1\) Log into the GOL IBE administration console. 
-
-2\) Go to the section **Dealer details** - **Front-End settings -** click on link beside the **Static HTML for download.**
-
-![](/images/docs/dcedb7a1607ac3a2.png)
-
-![](/images/docs/b3c13db7c79f99c2.png)
-
-![](/images/docs/dfd52a90069b0776.png)
+1. Log into the GOL IBE administration console. 
+2. Go to the section **Dealer details** - **Front-End settings -** click on link beside the **Static HTML for download.**
 
 FYI: The form includes HTML, CSS, pictures and relevant scripts for implementation into your website, including the full functionality of the destination search tooltip. You can customize the form as you wish.
 
