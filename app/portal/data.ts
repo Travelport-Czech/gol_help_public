@@ -179,7 +179,7 @@ export const CATEGORIES: Category[] = [
     desc: "Booking data, CSV/Excel export",
     href: "/portal/getting-started/1-gol-ibe-2-gol-ibe-step-by-step-statistics",
     articles: [
-      { title: "Download statistics", href: "/portal/getting-started/1-gol-ibe-2-gol-ibe-step-by-step-statistics" },
+      { title: "Export list of bookings", href: "/portal/getting-started/export-bookings" },
     ],
   },
   {
