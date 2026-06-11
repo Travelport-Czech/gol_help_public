@@ -2,16 +2,4 @@
 
 <!-- tags: dealer, create, new, sub-agency, partner, account -->
 
-## Steps
-
-1. Go to **Dealers → New Dealer**.
-2. Fill in the dealer's details:
-   - Company name
-   - Contact person name and email
-   - Country and currency
-3. Click **Create**.
-
-## After creation
-
-- The dealer's bookings appear separately in your **Statistics** reports.
-- You can configure the dealer's front-end appearance and settings under **Dealers → Front-end settings**.
+Dealers are created by the CEE Systems team upon request. To request a new dealer, contact us via the **Support** button in the bottom-right corner and provide: dealer name, dealer URL, contact person name, and contact person email. Once created, the agency can customize the dealer settings.

@@ -10,7 +10,7 @@ You can pre-fill the **Departure city** field on your GOL IBE search form so cus
 2. Go to **Dealers → Dealers** and open your dealer record.
 3. Click **Edit** (Dealer Edit).
 4. Find the field **Default departure city** (or **Default origin**).
-5. Enter the IATA airport code or start typing the city name and select from the dropdown (e.g. `PRG` for Prague).
+5. Enter the IATA airport code of the departure city manually (e.g. `PRG` for Prague) — there is no dropdown or autocomplete; you must type the IATA code directly.
 6. Click **Save**.
 
 ## Result

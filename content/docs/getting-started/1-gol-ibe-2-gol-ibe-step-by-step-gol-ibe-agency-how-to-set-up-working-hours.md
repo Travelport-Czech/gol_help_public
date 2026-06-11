@@ -19,4 +19,4 @@ Working hours define when your GOL IBE booking engine accepts new bookings. This
 - If none of the payment methods allows the ticket to be issued within working hours, the booking form cannot be completed and the customer is informed.
 - You can customise this notification under **Supporting texts**.
 
-For one-off exceptions (public holidays, vacation), use the **Working hours modifications** section — see [How to set up a working hours exception](./1-gol-ibe-2-gol-ibe-step-by-step-gol-ibe-agency-how-to-set-up-working-hours-exception).
+For one-off exceptions (public holidays, vacation), use the **Working hours modifications** section → see [How to set up a working hours exception](./1-gol-ibe-2-gol-ibe-step-by-step-gol-ibe-agency-how-to-set-up-working-hours-exception).

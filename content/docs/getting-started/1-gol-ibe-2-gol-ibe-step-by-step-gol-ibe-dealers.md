@@ -10,7 +10,7 @@ A dealer is a sub-agent or reseller who uses your GOL IBE booking engine — eit
 
 - Their own **pricing rules** (commissions, markups)
 - Their own **front-end design** (logo, colours, background)
-- Their own **currency** settings
+- Multi-currency options configured per dealer preferences — note that the base currency setting is inherited from the Agency
 - Separate **booking history** and **reports**
 
 ## What you can manage in Dealers
@@ -20,7 +20,7 @@ A dealer is a sub-agent or reseller who uses your GOL IBE booking engine — eit
 | **Dealer profile** | Name, contact info, login credentials |
 | **Commissions** | Set dealer-specific commission rates |
 | **Front-end settings** | Custom logo, colours, background image |
-| **Currency** | Enable multi-currency for the dealer |
+| **Currency** | Each dealer can have different multi-currency options configured |
 | **Booking access** | View and manage dealer's bookings |
 
 ## How to access
@@ -28,9 +28,3 @@ A dealer is a sub-agent or reseller who uses your GOL IBE booking engine — eit
 1. Log into the GOL IBE admin console.
 2. Go to **Dealers** in the left-hand menu.
 3. Click **Add dealer** to create a new one, or select an existing dealer to edit.
-
-## Related articles
-
-- How to set up multi-currency for a dealer
-- Basic front-end customisation
-- How to change background on your front-end

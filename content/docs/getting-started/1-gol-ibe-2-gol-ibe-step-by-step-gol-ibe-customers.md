@@ -24,8 +24,3 @@ For **you**: repeat bookings are easier to handle, fewer data-entry errors, bett
 
 In the GOL IBE admin console, go to **Customers → Customers** to view, search, and manage all customer profiles.
 
-## Related articles
-
-- [How to create a customer database](./1-gol-ibe-2-gol-ibe-step-by-step-gol-ibe-customers-how-to-create-customer-database)
-- [Advantages of customer database for your clients](./1-gol-ibe-2-gol-ibe-step-by-step-gol-ibe-customers-advantages-of-customer-database-for-your-clients)
-- [Advantages of customer database for you](./1-gol-ibe-2-gol-ibe-step-by-step-gol-ibe-customers-advantages-of-customer-database-for-you)

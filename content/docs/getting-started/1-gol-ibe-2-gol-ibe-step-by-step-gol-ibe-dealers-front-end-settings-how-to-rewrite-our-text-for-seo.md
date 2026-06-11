@@ -14,14 +14,6 @@ GOL IBE provides default text for the search form and booking pages. You can rew
 4. Write a 150–160 character description of your booking service.
 5. Click **Save** and flush HTML caches.
 
-### Page content text (headings, labels)
-
-1. Go to **Supporting texts → Supporting texts**.
-2. Find the text entry for the page you want to change (e.g. `Homepage heading`).
-3. Click **Edit**.
-4. Rewrite the text in the **Body** field.
-5. Click **Save** and flush HTML caches.
-
 ## SEO text tips
 
 | Element | Recommendation |
