@@ -110,44 +110,6 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
         )}
       </div>
 
-      {/* App switcher */}
-      <div className={s.sidebarApps}>
-        <span className={s.sidebarAppsLabel}>Switch to</span>
-        {APP_TABS.map((tab) =>
-          tab.isActive ? (
-            <button key={tab.label} className={`${s.appLink} ${s.appLinkActive}`}>
-              {tab.label}
-            </button>
-          ) : (
-            <a
-              key={tab.label}
-              href={tab.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={s.appLink}
-            >
-              {tab.label}
-            </a>
-          )
-        )}
-      </div>
-
-      {/* External links */}
-      <div className={s.sidebarExternalLinks}>
-        <span className={s.sidebarLabel}>Links</span>
-        {EXTERNAL_LINKS.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={s.appLink}
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-
       {/* Topic navigation */}
       <div className={s.sidebarTopics}>
         <span className={s.sidebarLabel}>Topics</span>
@@ -190,19 +152,35 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
         })}
       </div>
 
+      {/* External links */}
+      <div className={s.sidebarExternalLinks}>
+        <span className={s.sidebarLabel}>Links</span>
+        {EXTERNAL_LINKS.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={s.appLink}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
       {/* Footer actions */}
       <div className={s.sidebarFooter}>
-        <a
-          href="https://bo.golibe.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={s.sidebarFooterBtn}
-        >
-          Admin Console
-        </a>
-        <Link href="/portal/admin" className={s.sidebarFooterBtn}>
-          Content Studio
-        </Link>
+        {APP_TABS.filter((t) => !t.isActive).map((tab) => (
+          <a
+            key={tab.label}
+            href={tab.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={s.sidebarFooterBtn}
+          >
+            {tab.label}
+          </a>
+        ))}
         <button className={s.sidebarFooterBtn} onClick={() => setShowContact(true)}>
           Contact Help
         </button>
