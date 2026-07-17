@@ -13,7 +13,8 @@
 
 /* ── Top bar ───────────────────────────────────────────── */
 .topBar {
-  height: 56px;
+  height: 64px;
+  min-height: 64px;
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   display: flex;
@@ -25,8 +26,6 @@
 .topBarBrand {
   display: flex;
   align-items: center;
-  line-height: 0;
-  text-decoration: none;
 }
 
 .topBarDot {

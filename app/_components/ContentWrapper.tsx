@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { CeeLogo } from "@/components/CeeLogo";
+import { CeeBrand } from "@/components/CeeBrand";
 
 export function ContentWrapper({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -18,9 +18,7 @@ export function ContentWrapper({ children }: { children: ReactNode }) {
     <>
       <header className="header">
         <div className="container">
-          <Link href="/portal" className="brand" aria-label="CEE Systems Help Portal">
-            <CeeLogo height={26} variant="dark" />
-          </Link>
+          <CeeBrand height={26} className="brand" />
           <nav className="top-nav">
             <Link href="/" className="nav-link">Home</Link>
             <Link href="/portal" className="nav-link">Portal</Link>

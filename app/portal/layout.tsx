@@ -4,7 +4,7 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from "
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { CATEGORIES, APP_TABS, EXTERNAL_LINKS, type Category } from "./data";
-import { CeeLogo } from "@/components/CeeLogo";
+import { CeeBrand } from "@/components/CeeBrand";
 import s from "./portal-layout.module.css";
 
 /* ── Context ────────────────────────────────────────────── */
@@ -97,13 +97,10 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
     <>
       {/* Brand + clock */}
       <div className={s.sidebarBrand}>
-        <button
-          className={s.sidebarBrandBtn}
-          onClick={() => { setSelectedCat(null); router.push("/portal"); }}
-          aria-label="CEE Systems Help Portal — home"
-        >
-          <CeeLogo height={26} variant="dark" />
-        </button>
+        <CeeBrand
+          height={26}
+          onLogoClick={() => { setSelectedCat(null); router.push("/portal"); }}
+        />
         {now && (
           <div className={s.datetimeBadge}>
             <div>{fmtDate(now)}</div>
@@ -204,9 +201,7 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
           <span className={s.hamburgerLine} />
           <span className={s.hamburgerLine} />
         </button>
-        <Link href="/portal" className={s.mobileTopBarBrand} aria-label="CEE Systems Help Portal — home">
-          <CeeLogo height={24} variant="dark" />
-        </Link>
+        <CeeBrand height={24} compact className={s.mobileTopBarBrand} />
       </div>
 
       <div className={s.portalRoot}>

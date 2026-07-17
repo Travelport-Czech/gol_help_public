@@ -32,9 +32,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  height: 54px;
-  min-height: 54px;
+  padding: 10px 16px;
+  min-height: 64px;
   border-bottom: 1px solid #c0d9eb;
   flex-shrink: 0;
   background: #ffffff;
@@ -797,8 +796,6 @@
 .mobileTopBarBrand {
   display: flex;
   align-items: center;
-  line-height: 0;
-  text-decoration: none;
 }
 
 .mobileTopBarTitle {
@@ -830,7 +827,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 58px;
     background: #fff;
     border-bottom: 1px solid #c0d9eb;
     padding: 0 16px;
@@ -843,7 +840,7 @@
     flex-direction: column;
     height: auto;
     overflow: visible;
-    padding-top: 50px;
+    padding-top: 58px;
   }
 
   /* Sidebar becomes slide-in overlay */
