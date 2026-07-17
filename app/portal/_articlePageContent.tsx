@@ -3,6 +3,8 @@ import { MarkdownBody } from "@/components/MarkdownBody";
 import { BackButton } from "@/components/BackButton";
 import { ShareButton } from "@/components/ShareButton";
 import { ArticleContactButton } from "@/components/ArticleContactButton";
+import { ArticleVideoPanel } from "@/components/ArticleVideoPanel";
+import { getArticleVideos } from "@/lib/articleVideos";
 import { CATEGORIES } from "./data";
 import s from "./portal-layout.module.css";
 
@@ -19,6 +21,7 @@ export default function ArticlePageContent({
     (cat) => cat.href === href || cat.articles.some((a) => a.href === href)
   );
   const isCategoryPage = parentCat?.href === href;
+  const videos = getArticleVideos(href);
 
   return (
     <div className={s.articleWrap}>
@@ -49,12 +52,7 @@ export default function ArticlePageContent({
         <div className={s.articleBody}>
           <MarkdownBody>{article.bodyWithoutH1}</MarkdownBody>
         </div>
-        <aside className={s.articleVideoPanel}>
-          <div className={s.videoPlaceholderTile}>
-            <div className={s.videoPlaceholderIcon}>▶</div>
-            <span className={s.videoPlaceholderText}>WATCH VIDEO HERE</span>
-          </div>
-        </aside>
+        <ArticleVideoPanel videos={videos} />
       </div>
 
       {parentCat && (

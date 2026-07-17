@@ -20,7 +20,3 @@ Working hours define when your GOL IBE booking engine accepts new bookings. This
 - You can customise this notification under **Supporting texts**.
 
 For one-off exceptions (public holidays, vacation), use the **Working hours modifications** section → see [How to set up a working hours exception](./1-gol-ibe-2-gol-ibe-step-by-step-gol-ibe-agency-how-to-set-up-working-hours-exception).
-
-## Video tutorial
-
-[![Working hours in GOL IBE](https://img.youtube.com/vi/8WDPaH_ZJOk/0.jpg)](https://youtu.be/8WDPaH_ZJOk)
