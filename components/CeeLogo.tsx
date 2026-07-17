@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { withBasePath } from "@/lib/site";
 
 type CeeLogoProps = {
   /** Height in pixels — width scales automatically (aspect ~2.08:1) */
@@ -6,7 +6,6 @@ type CeeLogoProps = {
   /** "dark" for light backgrounds (sidebar), "light" for dark backgrounds */
   variant?: "dark" | "light";
   className?: string;
-  priority?: boolean;
 };
 
 const LOGO = {
@@ -22,18 +21,17 @@ export function CeeLogo({
   height = 28,
   variant = "dark",
   className,
-  priority = false,
 }: CeeLogoProps) {
   const width = Math.round(height * 2.084);
   return (
-    <Image
-      src={LOGO[variant]}
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={withBasePath(LOGO[variant])}
       alt="CEE Systems"
       width={width}
       height={height}
       className={className}
-      priority={priority}
-      style={{ width, height, objectFit: "contain" }}
+      style={{ width, height, objectFit: "contain", display: "block" }}
     />
   );
 }

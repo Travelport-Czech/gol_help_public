@@ -60,7 +60,7 @@ export default function HelpCenterHome() {
       {/* ── Top bar ── */}
       <div className={s.topBar}>
         <Link href="/portal" className={s.topBarBrand} aria-label="CEE Systems Help Portal">
-          <CeeLogo height={28} variant="dark" priority />
+          <CeeLogo height={28} variant="dark" />
         </Link>
       </div>
 

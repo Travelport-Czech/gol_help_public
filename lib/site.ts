@@ -11,3 +11,10 @@ export function getSiteUrl(): string {
 
   return "http://localhost:3000";
 }
+
+/** Prefix a public asset path with NEXT_PUBLIC_BASE_PATH (GitHub Pages subpath). */
+export function withBasePath(path: string): string {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ?? "";
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${normalized}`;
+}

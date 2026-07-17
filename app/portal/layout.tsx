@@ -102,7 +102,7 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
           onClick={() => { setSelectedCat(null); router.push("/portal"); }}
           aria-label="CEE Systems Help Portal — home"
         >
-          <CeeLogo height={26} variant="dark" priority />
+          <CeeLogo height={26} variant="dark" />
         </button>
         {now && (
           <div className={s.datetimeBadge}>
