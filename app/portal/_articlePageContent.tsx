@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { BackButton } from "@/components/BackButton";
 import { ShareButton } from "@/components/ShareButton";
+import { PortalSearch } from "@/components/PortalSearch";
 import { ArticleContactButton } from "@/components/ArticleContactButton";
 import { ArticleVideoPanel } from "@/components/ArticleVideoPanel";
 import { getArticleVideos } from "@/lib/articleVideos";
@@ -41,10 +42,13 @@ export default function ArticlePageContent({
               <span>{article.title}</span>
             )}
           </nav>
+          <div className={s.articleNavActions}>
+            <PortalSearch />
+            <ShareButton />
+          </div>
         </div>
         <div className={s.articleTitleRow}>
           <h1 className={s.articleMainTitle}>{article.title}</h1>
-          <ShareButton />
         </div>
       </div>
 

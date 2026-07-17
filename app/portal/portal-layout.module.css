@@ -364,6 +364,160 @@
   margin-bottom: 16px;
 }
 
+.articleNav :global(.breadcrumb) {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.articleNavActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* ── Header search pill (variant A) ─────────────────────── */
+.portalSearch {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.portalSearchPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  width: 220px;
+  padding: 0 10px 0 12px;
+  background: #f4f6f9;
+  border: 1.5px solid #c8cfe0;
+  border-radius: 999px;
+  transition: border-color 140ms, background 140ms, box-shadow 140ms, width 180ms;
+}
+
+.portalSearchPill:focus-within {
+  width: 260px;
+  background: #fff;
+  border-color: #131f6b;
+  box-shadow: 0 2px 10px rgba(26, 54, 104, 0.12);
+}
+
+.portalSearchIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: #6b7a99;
+}
+
+.portalSearchInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  color: #131f6b;
+  padding: 0;
+}
+
+.portalSearchInput::placeholder {
+  color: #9aa5b8;
+}
+
+.portalSearchInput::-webkit-search-cancel-button {
+  display: none;
+}
+
+.portalSearchClear {
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  color: #9aa5b8;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 999px;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.portalSearchClear:hover {
+  color: #131f6b;
+  background: #e8edf0;
+}
+
+.portalSearchResults {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(360px, 78vw);
+  max-height: min(420px, 60vh);
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #c0d9eb;
+  border-radius: 8px;
+  box-shadow: 0 12px 36px rgba(26, 54, 104, 0.16);
+  z-index: 50;
+}
+
+.portalSearchMeta {
+  padding: 10px 14px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7a99;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.portalSearchList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portalSearchItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #131f6b;
+  border-bottom: 1px solid #f0f3f7;
+  transition: background 100ms;
+}
+
+.portalSearchItem:hover {
+  background: #f4f6f9;
+}
+
+.portalSearchItemTitle {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.portalSearchItemCat {
+  font-size: 11px;
+  color: #6b7a99;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.portalSearchEmpty {
+  margin: 0;
+  padding: 16px 14px;
+  font-size: 13px;
+  color: #6b7a99;
+  line-height: 1.45;
+}
+
 .articleTitleRow {
   display: flex;
   align-items: flex-start;
@@ -994,6 +1148,25 @@
   .portalMain { height: auto; overflow: visible; }
   .categoryView { padding: 20px 20px 40px; }
   .articlePageHeader { padding: 16px 20px 14px; }
+  .articleNav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .articleNav :global(.breadcrumb) {
+    order: 3;
+    flex: 1 1 100%;
+    white-space: normal;
+  }
+  .articleNavActions {
+    margin-left: auto;
+  }
+  .portalSearchPill,
+  .portalSearchPill:focus-within {
+    width: min(200px, 46vw);
+  }
+  .portalSearchResults {
+    width: min(320px, 88vw);
+  }
   .articleBody { padding: 20px 20px 40px; }
   .articleContentRow { flex-direction: column; }
   .articleVideoPanel { width: 100%; border-left: none; border-top: none; padding: 16px 20px; }
