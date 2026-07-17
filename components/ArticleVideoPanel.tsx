@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ArticleVideo } from "@/lib/articleVideos";
 import { youtubeEmbedUrl } from "@/lib/articleVideos";
 import s from "@/app/portal/portal-layout.module.css";
@@ -9,13 +9,46 @@ type Props = {
   videos: ArticleVideo[];
 };
 
-function VideoTile({ video }: { video: ArticleVideo }) {
-  const [open, setOpen] = useState(false);
+function VideoModal({
+  video,
+  onClose,
+}: {
+  video: ArticleVideo;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
 
-  if (open) {
-    return (
-      <div className={s.videoPlayerWrap}>
-        <div className={s.videoWrap}>
+  return (
+    <div
+      className={s.videoModalOverlay}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={video.label}
+    >
+      <div className={s.videoModalBox}>
+        <button
+          type="button"
+          className={s.videoModalClose}
+          onClick={onClose}
+          aria-label="Close video"
+        >
+          ✕
+        </button>
+        <p className={s.videoModalTitle}>{video.label}</p>
+        <div className={s.videoModalPlayer}>
           <iframe
             src={youtubeEmbedUrl(video.youtubeId)}
             title={video.label}
@@ -23,50 +56,42 @@ function VideoTile({ video }: { video: ArticleVideo }) {
             allowFullScreen
           />
         </div>
-        <button
-          type="button"
-          className={s.videoCloseBtn}
-          onClick={() => setOpen(false)}
-        >
-          Close video
-        </button>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
+function VideoTrigger({ video }: { video: ArticleVideo }) {
+  const [open, setOpen] = useState(false);
 
   return (
-    <button
-      type="button"
-      className={s.videoPlaceholderTile}
-      onClick={() => setOpen(true)}
-      aria-label={`Play video: ${video.label}`}
-    >
-      <div className={s.videoPlaceholderIcon}>▶</div>
-      <span className={s.videoPlaceholderText}>Watch video</span>
-      <span className={s.videoTileLabel}>{video.label}</span>
-    </button>
+    <>
+      <button
+        type="button"
+        className={s.videoPlaceholderTile}
+        onClick={() => setOpen(true)}
+        aria-label={`Play video: ${video.label}`}
+      >
+        <div className={s.videoPlaceholderIcon}>▶</div>
+        <span className={s.videoPlaceholderText}>WATCH VIDEO HERE</span>
+      </button>
+      {open && <VideoModal video={video} onClose={() => setOpen(false)} />}
+    </>
   );
 }
 
 export function ArticleVideoPanel({ videos }: Props) {
-  if (videos.length === 0) {
-    return (
-      <aside className={s.articleVideoPanel} aria-hidden="true">
-        <div className={s.videoPlaceholderTile}>
-          <div className={s.videoPlaceholderIcon}>▶</div>
-          <span className={s.videoPlaceholderText}>Watch video here</span>
-        </div>
-      </aside>
-    );
-  }
-
   return (
     <aside className={s.articleVideoPanel} aria-label="Video tutorials">
-      <span className={s.videoPanelLabel}>Video</span>
       <div className={s.videoPanelStack}>
-        {videos.map((video) => (
-          <VideoTile key={video.youtubeId} video={video} />
-        ))}
+        {videos.length > 0 ? (
+          videos.map((video) => <VideoTrigger key={video.youtubeId} video={video} />)
+        ) : (
+          <div className={`${s.videoPlaceholderTile} ${s.videoPlaceholderTileStatic}`}>
+            <div className={s.videoPlaceholderIcon}>▶</div>
+            <span className={s.videoPlaceholderText}>WATCH VIDEO HERE</span>
+          </div>
+        )}
       </div>
     </aside>
   );
