@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import type { ArticleVideo } from "@/lib/articleVideos";
 import { youtubeEmbedUrl } from "@/lib/articleVideos";
 import s from "@/app/portal/portal-layout.module.css";
@@ -16,6 +17,12 @@ function VideoModal({
   video: ArticleVideo;
   onClose: () => void;
 }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -28,7 +35,9 @@ function VideoModal({
     };
   }, [onClose]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <div
       className={s.videoModalOverlay}
       onClick={(e) => {
@@ -50,14 +59,15 @@ function VideoModal({
         <p className={s.videoModalTitle}>{video.label}</p>
         <div className={s.videoModalPlayer}>
           <iframe
-            src={youtubeEmbedUrl(video.youtubeId)}
+            src={`${youtubeEmbedUrl(video.youtubeId)}&autoplay=1`}
             title={video.label}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
