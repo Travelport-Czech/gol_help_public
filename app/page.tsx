@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { CeeLogo } from "@/components/CeeLogo";
 import s from "./home.module.css";
 
 const PRODUCTS = [
@@ -58,9 +59,9 @@ export default function HelpCenterHome() {
     <div className={s.page}>
       {/* ── Top bar ── */}
       <div className={s.topBar}>
-        <span className={s.topBarBrand}>
-          Help Center<span className={s.topBarDot} />
-        </span>
+        <Link href="/portal" className={s.topBarBrand} aria-label="CEE Systems Help Portal">
+          <CeeLogo height={28} variant="dark" priority />
+        </Link>
       </div>
 
       {/* ── Hero ── */}

@@ -4,6 +4,7 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from "
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { CATEGORIES, APP_TABS, EXTERNAL_LINKS, type Category } from "./data";
+import { CeeLogo } from "@/components/CeeLogo";
 import s from "./portal-layout.module.css";
 
 /* ── Context ────────────────────────────────────────────── */
@@ -99,8 +100,9 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
         <button
           className={s.sidebarBrandBtn}
           onClick={() => { setSelectedCat(null); router.push("/portal"); }}
+          aria-label="CEE Systems Help Portal — home"
         >
-          GOL IBE Help
+          <CeeLogo height={26} variant="dark" priority />
         </button>
         {now && (
           <div className={s.datetimeBadge}>
@@ -202,7 +204,9 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
           <span className={s.hamburgerLine} />
           <span className={s.hamburgerLine} />
         </button>
-        <span className={s.mobileTopBarTitle}>GOL IBE Help</span>
+        <Link href="/portal" className={s.mobileTopBarBrand} aria-label="CEE Systems Help Portal — home">
+          <CeeLogo height={24} variant="dark" />
+        </Link>
       </div>
 
       <div className={s.portalRoot}>
