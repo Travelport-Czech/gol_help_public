@@ -10,6 +10,7 @@ type Props = {
 };
 
 function VideoTile({ video }: { video: ArticleVideo }) {
+  const [open, setOpen] = useState(false);
 
   if (open) {
     return (
