@@ -17,14 +17,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: "New Help Portal",
-    template: "%s | New Help Portal"
+    default: "Travelport-Czech-Help-Portal",
+    template: "%s | Travelport-Czech-Help-Portal"
   },
   description:
-    "New Help Portal for GOL IBE guidance, onboarding, and troubleshooting.",
+    "Travelport-Czech-Help-Portal for GOL IBE guidance, onboarding, and troubleshooting.",
   openGraph: {
     type: "website",
-    siteName: "New Help Portal"
+    siteName: "Travelport-Czech-Help-Portal"
   },
   robots: {
     index: true,
