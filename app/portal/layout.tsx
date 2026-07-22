@@ -33,11 +33,12 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
 
   const [selectedCat, setSelectedCat] = useState<Category | null>(null);
   const [expandedCat, setExpandedCat] = useState<string | null>(null);
-  const [showContact, setShowContact] = useState(false);
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [formSent, setFormSent] = useState(false);
   const [now, setNow] = useState<Date | null>(null);
+
+  function openZendeskWidget() {
+    window.zE?.("webWidget", "open");
+  }
 
   useEffect(() => {
     setNow(new Date());
@@ -70,22 +71,6 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
     }
     setSelectedCat(cat);
     setExpandedCat((prev) => (prev === cat.name ? null : cat.name));
-  }
-
-  function handleFormChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  }
-
-  function handleFormSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    // TODO: POST to https://YOUR_SUBDOMAIN.zendesk.com/api/v2/requests.json
-    setFormSent(true);
-  }
-
-  function closeContact() {
-    setShowContact(false);
-    setFormSent(false);
-    setForm({ name: "", email: "", subject: "", message: "" });
   }
 
   const fmtDate = (d: Date) =>
@@ -180,7 +165,7 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
             {tab.label}
           </a>
         ))}
-        <button className={s.sidebarFooterBtn} onClick={() => setShowContact(true)}>
+        <button className={s.sidebarFooterBtn} onClick={openZendeskWidget}>
           Contact Help
         </button>
       </div>
@@ -188,7 +173,7 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
   );
 
   return (
-    <PortalContext.Provider value={{ selectedCat, setSelectedCat, openContact: () => setShowContact(true) }}>
+    <PortalContext.Provider value={{ selectedCat, setSelectedCat, openContact: openZendeskWidget }}>
 
       {/* ══ MOBILE TOP BAR ════════════════════════════════ */}
       <div className={s.mobileTopBar}>
@@ -240,68 +225,10 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
       </div>
 
       {/* ══ FLOATING SUPPORT BUTTON ══════════════════════ */}
-      <button className={s.floatingSupport} onClick={() => setShowContact(true)}>
+      <button className={s.floatingSupport} onClick={openZendeskWidget}>
         <span className={s.floatingSupportIcon}>?</span>
         Support
       </button>
-
-      {/* ══ ZENDESK CONTACT MODAL ═════════════════════════ */}
-      {showContact && (
-        <div
-          className={s.modalOverlay}
-          onClick={(e) => { if (e.target === e.currentTarget) closeContact(); }}
-        >
-          <div className={s.modalBox} role="dialog" aria-modal="true">
-            <button className={s.modalClose} onClick={closeContact} aria-label="Close">✕</button>
-
-            {formSent ? (
-              <div className={s.successMsg}>
-                <span className={s.successIcon}>✅</span>
-                <h3 style={{ margin: "0 0 8px", letterSpacing: "-0.02em", fontSize: 22 }}>
-                  Request submitted!
-                </h3>
-                <p style={{ color: "#6e6e73", fontSize: 15, margin: "0 0 24px" }}>
-                  Our support team will get back to you via email shortly.
-                </p>
-                <button className={s.btnPrimary} onClick={closeContact}>Close</button>
-              </div>
-            ) : (
-              <>
-                <h2 className={s.modalTitle}>Contact Help</h2>
-                <p className={s.modalSub}>
-                  Submit a support request — our team usually responds within one business day.
-                </p>
-                <form onSubmit={handleFormSubmit}>
-                  <div className={s.formGroup}>
-                    <label className={s.formLabel} htmlFor="ct-name">Your name</label>
-                    <input id="ct-name" name="name" required className={s.formInput}
-                      value={form.name} onChange={handleFormChange} placeholder="Jane Smith" autoComplete="name" />
-                  </div>
-                  <div className={s.formGroup}>
-                    <label className={s.formLabel} htmlFor="ct-email">Email address</label>
-                    <input id="ct-email" name="email" type="email" required className={s.formInput}
-                      value={form.email} onChange={handleFormChange} placeholder="you@youragency.com" autoComplete="email" />
-                  </div>
-                  <div className={s.formGroup}>
-                    <label className={s.formLabel} htmlFor="ct-subject">Subject</label>
-                    <input id="ct-subject" name="subject" required className={s.formInput}
-                      value={form.subject} onChange={handleFormChange} placeholder="e.g. Issue with booking confirmation email" />
-                  </div>
-                  <div className={s.formGroup}>
-                    <label className={s.formLabel} htmlFor="ct-message">Message</label>
-                    <textarea id="ct-message" name="message" required className={s.formTextarea}
-                      value={form.message} onChange={handleFormChange} placeholder="Describe your issue or question in detail…" />
-                  </div>
-                  <div className={s.formActions}>
-                    <button type="button" className={s.btnOutline} onClick={closeContact}>Cancel</button>
-                    <button type="submit" className={s.btnPrimary}>Send request</button>
-                  </div>
-                </form>
-              </>
-            )}
-          </div>
-        </div>
-      )}
 
     </PortalContext.Provider>
   );

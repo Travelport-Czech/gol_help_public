@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 
 import { getSiteUrl } from "@/lib/site";
 import { ContentWrapper } from "./_components/ContentWrapper";
+import { ZendeskWidget } from "@/components/ZendeskWidget";
 
 import "./globals.css";
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={inter.variable}>
       <body>
         <ContentWrapper>{children}</ContentWrapper>
+        <ZendeskWidget />
       </body>
     </html>
   );
