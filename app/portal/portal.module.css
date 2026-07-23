@@ -301,7 +301,7 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: #e85e20;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 
 .releaseList {
@@ -312,7 +312,43 @@
   line-height: 1.7;
 }
 
-.releaseList li { margin-bottom: 3px; }
+.releaseList li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eef1f6;
+}
+
+.releaseList li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.releaseAllLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #e6ebf2;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e85e20;
+  text-decoration: none;
+}
+
+.releaseAllLink:hover {
+  color: #db4a17;
+  text-decoration: underline;
+}
+
+.releaseAllLinkArrow {
+  transition: transform 160ms;
+}
+
+.releaseAllLink:hover .releaseAllLinkArrow {
+  transform: translateX(3px);
+}
 
 .comingSoon {
   display: flex;

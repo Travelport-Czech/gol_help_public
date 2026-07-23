@@ -14,7 +14,7 @@ type SearchResult = {
   categoryDesc: string;
 };
 
-const latestReleaseHighlights = RELEASE_NOTES.flatMap((r) => r.items).slice(0, WALKTHROUGHS.length);
+const latestReleaseHighlights = RELEASE_NOTES.flatMap((r) => r.items).slice(0, WALKTHROUGHS.length + 3);
 
 const ALL_ARTICLES: SearchResult[] = CATEGORIES.flatMap((cat) =>
   cat.articles.map((a) => ({
@@ -156,8 +156,8 @@ export default function PortalOverviewPage() {
                   <ul className={s.releaseList}>
                     {latestReleaseHighlights.map((item) => <li key={item.title}>{item.title}</li>)}
                   </ul>
-                  <Link href="/portal/release-notes" style={{ fontSize: 14, marginTop: 10, display: "inline-block" }}>
-                    All GOL IBE News →
+                  <Link href="/portal/release-notes" className={s.releaseAllLink}>
+                    All GOL IBE News <span className={s.releaseAllLinkArrow}>→</span>
                   </Link>
                 </div>
               </div>
