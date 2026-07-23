@@ -54,14 +54,18 @@ async function main() {
   const releaseNotes = JSON.parse(await fs.readFile(releaseNotesPath, "utf8"));
   const label = monthLabel(new Date());
 
-  let group = releaseNotes.find((g) => g.version === label);
+  let group = releaseNotes.releases.find((g) => g.version === label);
   if (!group) {
     group = { version: label, items: [] };
-    releaseNotes.unshift(group);
+    releaseNotes.releases.unshift(group);
   }
   group.items.push(
     ...toPublish.map((d) => ({ title: d.english_text.trim(), detail: d.english_text.trim() }))
   );
+  // Keep the panel's month badge in sync with whatever just got published —
+  // update it by hand afterwards if you want it to reflect the actual release
+  // rather than the publish date.
+  releaseNotes.panelLabel = label;
 
   await fs.writeFile(releaseNotesPath, JSON.stringify(releaseNotes, null, 2) + "\n", "utf8");
 
