@@ -1,5 +1,7 @@
 /* Shared data for the GOL IBE Help Portal */
 
+import releaseNotesData from "../../content/whats-new/release-notes.json";
+
 export type Article = {
   title: string;
   href: string;
@@ -312,21 +314,6 @@ export const HEALTH_CHECKS: HealthCheck[] = [
   },
 ];
 
-export const RELEASE_NOTES: ReleaseNote[] = [
-  {
-    version: "April 2026",
-    items: [
-      "New Help Portal prototype launched — full-screen layout",
-      "Persistent sidebar navigation with expandable topics",
-      "App switcher: Admin Console, TCP, My Travelport, GOL IBE Web",
-      "Contact Help form (Zendesk) added",
-    ],
-  },
-  {
-    version: "March 2026",
-    items: [
-      "Baseline information architecture established",
-      "Content organised: Getting Started, Configuration, Operations, Troubleshooting",
-    ],
-  },
-];
+// Sourced from content/whats-new/release-notes.json, populated only via the
+// reviewed What's New pipeline (scripts/whats-new) — see docs/whats-new-workflow.md.
+export const RELEASE_NOTES: ReleaseNote[] = releaseNotesData;

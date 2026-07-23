@@ -1,0 +1,18 @@
+[
+  {
+    "version": "April 2026",
+    "items": [
+      "New Help Portal prototype launched — full-screen layout",
+      "Persistent sidebar navigation with expandable topics",
+      "App switcher: Admin Console, TCP, My Travelport, GOL IBE Web",
+      "Contact Help form (Zendesk) added"
+    ]
+  },
+  {
+    "version": "March 2026",
+    "items": [
+      "Baseline information architecture established",
+      "Content organised: Getting Started, Configuration, Operations, Troubleshooting"
+    ]
+  }
+]
