@@ -158,7 +158,7 @@ export default function PortalOverviewPage() {
                       </ul>
                     </div>
                   ))}
-                  <Link href="/release-notes" style={{ fontSize: 14, marginTop: 10, display: "inline-block" }}>
+                  <Link href="/portal/release-notes" style={{ fontSize: 14, marginTop: 10, display: "inline-block" }}>
                     All release notes →
                   </Link>
                 </div>
