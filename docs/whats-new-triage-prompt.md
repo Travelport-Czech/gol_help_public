@@ -5,10 +5,15 @@ placeholder at the bottom with the raw release notes text, and run it.
 
 Companion to the manual `add` → `review` → `publish` pipeline described in
 `docs/whats-new-workflow.md`. This prompt does the triage (client-relevant vs.
-internal-only) and the English rewrite up front; the JSON it returns can be
-pasted straight into `content/whats-new/release-notes.json`, or its item
-sentences used as the `english_text` for individual drafts if you want to keep
-the manual review checkpoint in `whats-new:review`.
+internal-only) and the English rewrite up front; the JSON it returns matches
+`content/whats-new/release-notes.json` exactly (`{ version, items: [{ title,
+detail }] }`) and can be pasted straight in.
+
+Each item is shown in two places, so it needs both fields:
+- the portal home page's "What's New" panel shows only `title`, for the
+  latest few items;
+- the full list at `/portal/release-notes/` shows every item's `title` and
+  `detail` together.
 
 ---
 
@@ -43,13 +48,22 @@ TASK
 3. Discard INTERNAL-ONLY items completely. Do not summarize, list, or refer
    to them anywhere in the main output.
 
-4. Rewrite every CLIENT-RELEVANT item as one short, plain-English sentence
-   for the public list:
+4. Rewrite every CLIENT-RELEVANT item as a `title` + `detail` pair:
    - Always in English, regardless of the source language.
-   - One clear sentence, not a paragraph — match this existing tone:
-     "New Help Portal prototype launched — full-screen layout"
-     "Persistent sidebar navigation with expandable topics"
-   - State the customer-facing outcome/benefit, not the implementation.
+   - `title`: a short punchy headline, ~4-9 words, no trailing period —
+     match this existing tone:
+     "Stripe payments now at your disposal"
+     "Smarter destination autocomplete for faster search"
+     "Small personal item baggage now clearly labeled"
+   - `detail`: one or two full sentences expanding on the title — what
+     changed and why it helps — match this existing tone:
+     "Stripe is now available as a payment option for both travelers and
+     agencies, expanding the ways customers can pay for a booking."
+     "When searching for flights, the system now automatically prioritizes
+     the most relevant destinations, making search faster and more
+     intuitive."
+   - Both fields state the customer-facing outcome/benefit, not the
+     implementation.
    - Strip: support-ticket references, internal ticket/PR links, class or
      module names, engineering jargon, "Developers/Testers benefit..."
      framing.
@@ -67,8 +81,8 @@ OUTPUT — return exactly these three parts, nothing else:
 {
   "version": "<Month Year>",
   "items": [
-    "<rewritten sentence>",
-    "<rewritten sentence>"
+    { "title": "<short headline>", "detail": "<one or two sentence expansion>" },
+    { "title": "<short headline>", "detail": "<one or two sentence expansion>" }
   ]
 }
 
