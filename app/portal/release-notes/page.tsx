@@ -7,7 +7,7 @@ import { RELEASE_NOTES } from "../data";
 import s from "../portal-layout.module.css";
 import p from "../portal.module.css";
 
-export const metadata = { title: "Release notes" };
+export const metadata = { title: "GOL IBE News" };
 
 export default function ReleaseNotesPage() {
   return (
@@ -18,7 +18,7 @@ export default function ReleaseNotesPage() {
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <Link href="/portal">Home</Link>
             <span aria-hidden="true"> / </span>
-            <span>Release notes</span>
+            <span>GOL IBE News</span>
           </nav>
           <div className={s.articleNavActions}>
             <PortalSearch />
@@ -26,7 +26,7 @@ export default function ReleaseNotesPage() {
           </div>
         </div>
         <div className={s.articleTitleRow}>
-          <h1 className={s.articleMainTitle}>Release notes</h1>
+          <h1 className={s.articleMainTitle}>GOL IBE News</h1>
         </div>
       </div>
 
