@@ -21,9 +21,14 @@ export type AppTab = {
   isActive: boolean;
 };
 
+export type ReleaseNoteItem = {
+  title: string;
+  detail: string;
+};
+
 export type ReleaseNote = {
   version: string;
-  items: string[];
+  items: ReleaseNoteItem[];
 };
 
 export type Walkthrough = {

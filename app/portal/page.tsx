@@ -14,6 +14,8 @@ type SearchResult = {
   categoryDesc: string;
 };
 
+const latestReleaseHighlights = RELEASE_NOTES.flatMap((r) => r.items).slice(0, WALKTHROUGHS.length);
+
 const ALL_ARTICLES: SearchResult[] = CATEGORIES.flatMap((cat) =>
   cat.articles.map((a) => ({
     title: a.title,
@@ -150,14 +152,9 @@ export default function PortalOverviewPage() {
                   <span className={s.panelTitle}>What&apos;s New</span>
                 </div>
                 <div className={s.panelBody}>
-                  {RELEASE_NOTES.map((r) => (
-                    <div key={r.version} className={s.releaseEntry}>
-                      <div className={s.releaseVersion}>{r.version}</div>
-                      <ul className={s.releaseList}>
-                        {r.items.map((item) => <li key={item}>{item}</li>)}
-                      </ul>
-                    </div>
-                  ))}
+                  <ul className={s.releaseList}>
+                    {latestReleaseHighlights.map((item) => <li key={item.title}>{item.title}</li>)}
+                  </ul>
                   <Link href="/portal/release-notes" style={{ fontSize: 14, marginTop: 10, display: "inline-block" }}>
                     All release notes →
                   </Link>
