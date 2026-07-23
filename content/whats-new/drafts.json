@@ -1,3 +1,16 @@
 {
-  "drafts": []
+  "drafts": [
+    {
+      "id": "wn-2026-07-23-001",
+      "source": "internal-doc",
+      "date_added": "2026-07-23",
+      "raw_text": "Release-notes publishing pipeline added",
+      "language": "en",
+      "visibility": "external",
+      "english_text": "Release-notes publishing pipeline added",
+      "status": "published",
+      "published_at": "2026-07-23T06:49:31.583Z",
+      "notes": ""
+    }
+  ]
 }
