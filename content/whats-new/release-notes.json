@@ -1,5 +1,26 @@
 [
   {
+    "version": "July 2026",
+    "items": [
+      "Small personal item baggage (e.g. handbag or backpack under the seat) now has a clear label, so travelers know what they can bring on board for free.",
+      "Fare display now supports very high ticket prices without errors or truncation.",
+      "The price calendar can now show two separate one-way fares, making it easier to plan the best combination for a round trip.",
+      "Fixed a bug that could incorrectly exclude valid connecting airports from flight search results.",
+      "Approval emails now show the currency of the amount, so approvers no longer need to check reservation details separately.",
+      "Hotel approval emails now include the booking note, giving approvers immediate context.",
+      "Agencies and corporate customers can now generate MIR (Management Information Reports) directly via API, enabling reporting automation.",
+      "Fixed an intermittent payment failure on GoGlobal hotel bookings.",
+      "Fixed a bug that could create duplicate passive reservations.",
+      "Mobile app updated to version 3.7.0 with bug fixes and security improvements.",
+      "Strengthened session security for agency logins.",
+      "Destination search is now more accurate, with better suggestions while typing.",
+      "Travelers can now choose which passport they're traveling with directly in the booking form.",
+      "Hotel search is now available within HTML package bookings.",
+      "Stripe is now available as a payment option for travelers and agencies.",
+      "TripServices reservations are now automatically queued for processing, reducing manual errors and speeding up bookings."
+    ]
+  },
+  {
     "version": "April 2026",
     "items": [
       "New Help Portal prototype launched — full-screen layout",
