@@ -3,10 +3,6 @@
     "version": "July 2026",
     "items": [
       {
-        "title": "Promo codes now work correctly in Promotions",
-        "detail": "Promo codes now work correctly in the Promotions section, so discount codes can be reliably applied to bookings there instead of failing silently."
-      },
-      {
         "title": "Smarter destination autocomplete for faster search",
         "detail": "When searching for flights, the system now automatically prioritizes the most relevant destinations, making search faster and more intuitive."
       },
@@ -24,14 +20,6 @@
     "version": "June 2026",
     "items": [
       {
-        "title": "More accurate destination search suggestions",
-        "detail": "Destination search is now more accurate, with better suggestions while typing, making it faster to find the right result."
-      },
-      {
-        "title": "Search form now collapses automatically after results",
-        "detail": "The HTML package search form now minimizes automatically once results are shown, freeing up space for a clearer view of the offers."
-      },
-      {
         "title": "Passport selection now available at booking",
         "detail": "Travelers can now choose which passport they're traveling with directly in the booking form, instead of it being fixed to their profile default."
       },
@@ -40,24 +28,12 @@
         "detail": "Hotel search is now available within HTML package bookings, so package offers can include a hotel search step."
       },
       {
-        "title": "Agents now get direct access to Admin Console",
-        "detail": "Agents can now get direct access to Admin Console, giving agencies more independence in managing their own settings without escalating to support."
-      },
-      {
         "title": "Small personal item baggage now clearly labeled",
         "detail": "Cabin baggage now clearly labels the small personal item allowance (e.g. a handbag or backpack under the seat), so travelers know exactly what they can bring on board for free."
       },
       {
-        "title": "Support added for very high-value fares",
-        "detail": "Fare display now supports very high ticket prices (up to 9 digits) without errors or truncation."
-      },
-      {
         "title": "Price calendar now shows two one-way fares",
         "detail": "The price calendar can now display two separate one-way fares side by side, making it easier to combine the cheapest outbound and return dates for a round trip."
-      },
-      {
-        "title": "Connecting airport search bug fixed",
-        "detail": "Fixed a bug that could incorrectly exclude valid connecting airports from flight search results, so more itineraries now show up as expected."
       },
       {
         "title": "Currency now shown in approval emails",
@@ -72,20 +48,8 @@
         "detail": "Agencies and corporate customers can now generate MIR (Management Information Reports) directly through the API, enabling automated reporting instead of manual exports."
       },
       {
-        "title": "GoGlobal payment reliability improved",
-        "detail": "Fixed an intermittent payment failure that could occur on GoGlobal hotel bookings, making checkout more reliable."
-      },
-      {
-        "title": "Duplicate reservation bug fixed",
-        "detail": "Fixed a bug that could create duplicate passive reservations, removing the need to manually spot and cancel the extra copy."
-      },
-      {
         "title": "Mobile app updated to version 3.7.0",
         "detail": "The mobile app was updated to version 3.7.0 with bug fixes and security improvements."
-      },
-      {
-        "title": "Agency login security strengthened",
-        "detail": "Session security for agency logins was strengthened, better protecting agency accounts."
       }
     ]
   }
