@@ -321,5 +321,4 @@ export const HEALTH_CHECKS: HealthCheck[] = [
 
 // Sourced from content/whats-new/release-notes.json, populated only via the
 // reviewed What's New pipeline (scripts/whats-new) — see docs/whats-new-workflow.md.
-export const RELEASE_NOTES: ReleaseNote[] = releaseNotesData.releases;
-export const RELEASE_NOTES_PANEL_LABEL: string = releaseNotesData.panelLabel;
+export const RELEASE_NOTES: ReleaseNote[] = releaseNotesData;

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useEffect } from "react";
 import { usePortal } from "./layout";
-import { CATEGORIES, RELEASE_NOTES, RELEASE_NOTES_PANEL_LABEL, WALKTHROUGHS, HEALTH_CHECKS } from "./data";
+import { CATEGORIES, RELEASE_NOTES, WALKTHROUGHS, HEALTH_CHECKS } from "./data";
 import s from "./portal.module.css";
 
 type SearchResult = {
@@ -14,7 +14,7 @@ type SearchResult = {
   categoryDesc: string;
 };
 
-const latestReleaseHighlights = RELEASE_NOTES.flatMap((r) => r.items);
+const latestRelease = RELEASE_NOTES[0];
 
 const ALL_ARTICLES: SearchResult[] = CATEGORIES.flatMap((cat) =>
   cat.articles.map((a) => ({
@@ -152,12 +152,12 @@ export default function PortalOverviewPage() {
                   <span className={s.panelTitle}>What&apos;s New</span>
                 </div>
                 <div className={s.panelBody}>
-                  <div className={s.releaseVersion}>{RELEASE_NOTES_PANEL_LABEL}</div>
+                  <div className={s.releaseVersion}>{latestRelease.version}</div>
                   <ul className={s.releaseList}>
-                    {latestReleaseHighlights.map((item) => <li key={item.title}>{item.title}</li>)}
+                    {latestRelease.items.map((item) => <li key={item.title}>{item.title}</li>)}
                   </ul>
                   <Link href="/portal/release-notes" style={{ fontSize: 14, marginTop: 10, display: "inline-block" }}>
-                    All release notes →
+                    All GOL IBE News →
                   </Link>
                 </div>
               </div>
