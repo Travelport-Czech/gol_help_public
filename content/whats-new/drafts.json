@@ -8,9 +8,9 @@
       "language": "en",
       "visibility": "external",
       "english_text": "Release-notes publishing pipeline added",
-      "status": "published",
-      "published_at": "2026-07-23T06:49:31.583Z",
-      "notes": ""
+      "status": "rejected",
+      "published_at": null,
+      "notes": "Retracted: this was a meta note about the tooling itself, not real product content. Should not have been published."
     }
   ]
 }
