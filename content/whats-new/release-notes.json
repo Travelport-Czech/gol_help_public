@@ -1,39 +1,102 @@
 [
   {
-    "version": "July 2026",
+    "version": "GOL Release M2026-27",
     "items": [
-      "Small personal item baggage (e.g. handbag or backpack under the seat) now has a clear label, so travelers know what they can bring on board for free.",
-      "Fare display now supports very high ticket prices without errors or truncation.",
-      "The price calendar can now show two separate one-way fares, making it easier to plan the best combination for a round trip.",
-      "Fixed a bug that could incorrectly exclude valid connecting airports from flight search results.",
-      "Approval emails now show the currency of the amount, so approvers no longer need to check reservation details separately.",
-      "Hotel approval emails now include the booking note, giving approvers immediate context.",
-      "Agencies and corporate customers can now generate MIR (Management Information Reports) directly via API, enabling reporting automation.",
-      "Fixed an intermittent payment failure on GoGlobal hotel bookings.",
-      "Fixed a bug that could create duplicate passive reservations.",
-      "Mobile app updated to version 3.7.0 with bug fixes and security improvements.",
-      "Strengthened session security for agency logins.",
-      "Destination search is now more accurate, with better suggestions while typing.",
-      "Travelers can now choose which passport they're traveling with directly in the booking form.",
-      "Hotel search is now available within HTML package bookings.",
-      "Stripe is now available as a payment option for travelers and agencies.",
-      "TripServices reservations are now automatically queued for processing, reducing manual errors and speeding up bookings."
+      {
+        "title": "Promo codes fixed in Promotions section",
+        "detail": "Promo codes now work correctly in the Promotions section, so discount codes can be reliably applied to bookings there instead of failing silently."
+      }
     ]
   },
   {
-    "version": "April 2026",
+    "version": "GOL Release M2026-26",
     "items": [
-      "New Help Portal prototype launched — full-screen layout",
-      "Persistent sidebar navigation with expandable topics",
-      "App switcher: Admin Console, TCP, My Travelport, GOL IBE Web",
-      "Contact Help form (Zendesk) added"
+      {
+        "title": "Smarter destination autocomplete",
+        "detail": "When searching for flights, the system now automatically prioritizes the most relevant destinations, making search faster and more intuitive."
+      },
+      {
+        "title": "Stripe payments",
+        "detail": "Stripe is now available as a payment option for both travelers and agencies, expanding the ways customers can pay for a booking."
+      },
+      {
+        "title": "Automatic TripServices queueing",
+        "detail": "TripServices reservations are now automatically placed in the correct processing queue, reducing manual errors and speeding up bookings."
+      }
     ]
   },
   {
-    "version": "March 2026",
+    "version": "GOL Release M2026-25",
     "items": [
-      "Baseline information architecture established",
-      "Content organised: Getting Started, Configuration, Operations, Troubleshooting"
+      {
+        "title": "Smarter destination search",
+        "detail": "Destination search is now more accurate, with better suggestions while typing, making it faster to find the right result."
+      },
+      {
+        "title": "Compact search form after results",
+        "detail": "The HTML package search form now minimizes automatically once results are shown, freeing up space for a clearer view of the offers."
+      },
+      {
+        "title": "Passport selection at booking",
+        "detail": "Travelers can now choose which passport they're traveling with directly in the booking form, instead of it being fixed to their profile default."
+      },
+      {
+        "title": "Hotel search in HTML packages",
+        "detail": "Hotel search is now available within HTML package bookings, so package offers can include a hotel search step."
+      },
+      {
+        "title": "Agent access to Admin Console",
+        "detail": "Agents can now get direct access to Admin Console, giving agencies more independence in managing their own settings without escalating to support."
+      }
+    ]
+  },
+  {
+    "version": "GOL Release M2026-24",
+    "items": [
+      {
+        "title": "Small personal item labeling",
+        "detail": "Cabin baggage now clearly labels the small personal item allowance (e.g. a handbag or backpack under the seat), so travelers know exactly what they can bring on board for free."
+      },
+      {
+        "title": "Support for high-value fares",
+        "detail": "Fare display now supports very high ticket prices (up to 9 digits) without errors or truncation."
+      },
+      {
+        "title": "Two one-way fares in price calendar",
+        "detail": "The price calendar can now display two separate one-way fares side by side, making it easier to combine the cheapest outbound and return dates for a round trip."
+      },
+      {
+        "title": "Connecting airport search fix",
+        "detail": "Fixed a bug that could incorrectly exclude valid connecting airports from flight search results, so more itineraries now show up as expected."
+      },
+      {
+        "title": "Currency shown in approval emails",
+        "detail": "Approval emails now display the currency of the amount being approved, so approvers no longer need to open the reservation to check what currency is involved."
+      },
+      {
+        "title": "Booking note in hotel approvals",
+        "detail": "Hotel approval emails now include the booking note directly, giving approvers immediate context without switching screens."
+      },
+      {
+        "title": "MIR reports via API",
+        "detail": "Agencies and corporate customers can now generate MIR (Management Information Reports) directly through the API, enabling automated reporting instead of manual exports."
+      },
+      {
+        "title": "GoGlobal payment reliability fix",
+        "detail": "Fixed an intermittent payment failure that could occur on GoGlobal hotel bookings, making checkout more reliable."
+      },
+      {
+        "title": "Duplicate reservation fix",
+        "detail": "Fixed a bug that could create duplicate passive reservations, removing the need to manually spot and cancel the extra copy."
+      },
+      {
+        "title": "Mobile app 3.7.0",
+        "detail": "The mobile app was updated to version 3.7.0 with bug fixes and security improvements."
+      },
+      {
+        "title": "Stronger login security",
+        "detail": "Session security for agency logins was strengthened, better protecting agency accounts."
+      }
     ]
   }
 ]

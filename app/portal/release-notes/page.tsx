@@ -32,11 +32,18 @@ export default function ReleaseNotesPage() {
 
       <div className={s.articleBody}>
         {RELEASE_NOTES.map((r) => (
-          <div key={r.version} className={p.releaseEntry} style={{ marginBottom: 28 }}>
-            <div className={p.releaseVersion} style={{ fontSize: 14 }}>{r.version}</div>
-            <ul className={p.releaseList}>
-              {r.items.map((item) => <li key={item}>{item}</li>)}
-            </ul>
+          <div key={r.version} className={p.releaseEntry} style={{ marginBottom: 32 }}>
+            <div className={p.releaseVersion} style={{ fontSize: 14, marginBottom: 12 }}>{r.version}</div>
+            {r.items.map((item) => (
+              <div key={item.title} style={{ marginBottom: 16 }}>
+                <div style={{ fontSize: 15, fontWeight: 600, color: "#131f6b", marginBottom: 4 }}>
+                  {item.title}
+                </div>
+                <p style={{ fontSize: 14, color: "#425073", lineHeight: 1.6, margin: 0 }}>
+                  {item.detail}
+                </p>
+              </div>
+            ))}
           </div>
         ))}
       </div>

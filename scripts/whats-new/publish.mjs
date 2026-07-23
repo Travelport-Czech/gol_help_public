@@ -59,7 +59,9 @@ async function main() {
     group = { version: label, items: [] };
     releaseNotes.unshift(group);
   }
-  group.items.push(...toPublish.map((d) => d.english_text.trim()));
+  group.items.push(
+    ...toPublish.map((d) => ({ title: d.english_text.trim(), detail: d.english_text.trim() }))
+  );
 
   await fs.writeFile(releaseNotesPath, JSON.stringify(releaseNotes, null, 2) + "\n", "utf8");
 
