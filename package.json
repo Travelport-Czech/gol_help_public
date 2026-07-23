@@ -12,7 +12,10 @@
     "import:md": "node scripts/import-markdown.mjs",
     "import:linked": "node scripts/import-linked-pages.mjs",
     "rewrite:links": "node scripts/rewrite-links.mjs",
-    "localize:images": "node scripts/localize-images.mjs"
+    "localize:images": "node scripts/localize-images.mjs",
+    "whats-new:add": "node scripts/whats-new/add.mjs",
+    "whats-new:review": "node scripts/whats-new/review.mjs",
+    "whats-new:publish": "node scripts/whats-new/publish.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",
