@@ -93,4 +93,3 @@ is not part of the day-to-day publishing flow.
 | [`style-guide.md`](./style-guide.md) | Writing voice/tone conventions |
 | [`vercel-setup.md`](./vercel-setup.md) | How the (currently unused for production) manual Vercel deploy is configured |
 | [`migration-checklist.md`](./migration-checklist.md) / [`import-gaps.md`](./import-gaps.md) | Notes from the original legacy-site import; only relevant if importing more old pages |
-| [`github-cursor-onboarding.md`](./github-cursor-onboarding.md) | ⚠ References a different repo (`gitbook_golhelp`) — not this project, kept here by mistake as far as I can tell. Ignore unless you know otherwise. |
