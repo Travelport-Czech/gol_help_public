@@ -15,7 +15,8 @@
     "localize:images": "node scripts/localize-images.mjs",
     "whats-new:add": "node scripts/whats-new/add.mjs",
     "whats-new:review": "node scripts/whats-new/review.mjs",
-    "whats-new:publish": "node scripts/whats-new/publish.mjs"
+    "whats-new:publish": "node scripts/whats-new/publish.mjs",
+    "check:content": "node scripts/check-content-sync.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",

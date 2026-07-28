@@ -6,3 +6,4 @@ out/
 scripts/import/
 .vercel
 tsconfig.tsbuildinfo
+.obsidian/
