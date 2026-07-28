@@ -217,7 +217,7 @@ Pushes to `main` trigger the `github-pages` GitHub Actions workflow:
 2. `npm run build` — generates static files in `/out`
 3. Uploads `/out` to GitHub Pages
 
-Live URL: **https://danielavokalova.github.io/new_help_public/**
+Live URL: **https://travelport-czech.github.io/gol_help_public/**
 
 The `basePath` is set to `/new_help_public` via the `NEXT_PUBLIC_BASE_PATH` environment variable configured in the Pages workflow.
 
