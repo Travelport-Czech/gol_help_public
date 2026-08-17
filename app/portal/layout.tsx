@@ -37,6 +37,7 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
   const [now, setNow] = useState<Date | null>(null);
 
   function openZendeskWidget() {
+    window.zE?.("webWidget", "show");
     window.zE?.("webWidget", "open");
   }
 
