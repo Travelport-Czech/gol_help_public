@@ -12,6 +12,13 @@ export function ZendeskWidget() {
     script.id = "ze-snippet";
     script.src = `https://static.zdassets.com/ekr/snippet.js?key=${ZENDESK_KEY}`;
     script.onload = () => {
+      const locale = navigator.language.toLowerCase().startsWith("cs") ? "cs" : "en";
+
+      window.zE?.("webWidget", "setLocale", locale);
+      window.zE?.("webWidget:on", "close", () => {
+        window.zE?.("webWidget", "hide");
+      });
+
       // Default launcher is hidden — the portal's own Support / Contact Help
       // buttons open the widget instead (see openZendeskWidget in portal/layout.tsx).
       window.zE?.("webWidget", "hide");

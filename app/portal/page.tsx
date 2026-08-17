@@ -30,7 +30,7 @@ const MOST_VISITED = ALL_ARTICLES.slice(0, 5);
 export default function PortalOverviewPage() {
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
-  const { openContact } = usePortal();
+  const { openContact, contactLabel } = usePortal();
   const router = useRouter();
 
   useEffect(() => {
@@ -230,7 +230,7 @@ export default function PortalOverviewPage() {
                 Open Admin Console ↗
               </a>
               <button className={s.btnPrimary} onClick={openContact}>
-                Contact Help
+                {contactLabel}
               </button>
             </div>
           </>

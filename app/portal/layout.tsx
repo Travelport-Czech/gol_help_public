@@ -12,12 +12,14 @@ type PortalCtx = {
   selectedCat: Category | null;
   setSelectedCat: (cat: Category | null) => void;
   openContact: () => void;
+  contactLabel: string;
 };
 
 const PortalContext = createContext<PortalCtx>({
   selectedCat: null,
   setSelectedCat: () => {},
   openContact: () => {},
+  contactLabel: "Contact Help",
 });
 
 export function usePortal() {
@@ -35,6 +37,10 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
   const [expandedCat, setExpandedCat] = useState<string | null>(null);
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [now, setNow] = useState<Date | null>(null);
+  const [isCzech, setIsCzech] = useState(false);
+
+  const contactLabel = isCzech ? "Kontaktovat podporu" : "Contact Help";
+  const supportLabel = isCzech ? "Podpora" : "Support";
 
   function openZendeskWidget() {
     window.zE?.("webWidget", "show");
@@ -42,6 +48,7 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
+    setIsCzech(navigator.language.toLowerCase().startsWith("cs"));
     setNow(new Date());
     const t = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(t);
@@ -167,14 +174,14 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
           </a>
         ))}
         <button className={s.sidebarFooterBtn} onClick={openZendeskWidget}>
-          Contact Help
+          {contactLabel}
         </button>
       </div>
     </>
   );
 
   return (
-    <PortalContext.Provider value={{ selectedCat, setSelectedCat, openContact: openZendeskWidget }}>
+    <PortalContext.Provider value={{ selectedCat, setSelectedCat, openContact: openZendeskWidget, contactLabel }}>
 
       {/* ══ MOBILE TOP BAR ════════════════════════════════ */}
       <div className={s.mobileTopBar}>
@@ -228,7 +235,7 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
       {/* ══ FLOATING SUPPORT BUTTON ══════════════════════ */}
       <button className={s.floatingSupport} onClick={openZendeskWidget}>
         <span className={s.floatingSupportIcon}>?</span>
-        Support
+        {supportLabel}
       </button>
 
     </PortalContext.Provider>
