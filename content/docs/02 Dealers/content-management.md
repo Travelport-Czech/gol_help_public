@@ -36,4 +36,4 @@ The list shows the connectors that are currently set for that dealer. You only n
 5. Uncheck a connector to turn it off, or check it to turn it on.
 6. Click **Save**.
 
-See also: [GDS Connectors](/portal/advanced-settings/connectors)
+
