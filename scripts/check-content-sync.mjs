@@ -1,137 +1,97 @@
 #!/usr/bin/env node
 /**
- * Cross-checks the three places an article has to line up to be visible on the
- * portal: the markdown file itself (content/docs/<section>/<slug>.md), the
- * optional friendly-URL alias (lib/slugMap.ts), and the site nav registry
- * (app/portal/data.ts CATEGORIES). Run after adding/editing articles in
- * Obsidian, before opening a PR.
+ * Validates Obsidian content: every topic folder has _index.md metadata,
+ * every article has a title, and Home.md links resolve.
  *
  * Usage: npm run check:content
  */
 import fs from "fs/promises";
 import path from "path";
+import { spawnSync } from "child_process";
 
 const ROOT = process.cwd();
-const CONTENT_ROOT = path.join(ROOT, "content", "docs");
+const DOCS = path.join(ROOT, "content", "docs");
 
-async function readText(relPath) {
-  return fs.readFile(path.join(ROOT, relPath), "utf8");
-}
-
-function parseSections(contentTs) {
-  const m = contentTs.match(/export const SECTIONS = \[([\s\S]*?)\] as const;/);
-  if (!m) throw new Error("Could not find SECTIONS in lib/content.ts");
-  return [...m[1].matchAll(/"([^"]+)"/g)].map((x) => x[1]);
-}
-
-function parseSlugMap(slugMapTs) {
-  const map = new Map(); // key -> { section, file }
-  const re = /"([^"]+)":\s*{\s*section:\s*"([^"]+)",\s*file:\s*"([^"]+)"\s*}/g;
-  for (const m of slugMapTs.matchAll(re)) {
-    map.set(m[1], { section: m[2], file: m[3] });
+function parseFrontmatter(raw) {
+  const text = raw.replace(/^\uFEFF/, "");
+  if (!text.startsWith("---")) return { data: {}, body: text };
+  const end = text.indexOf("\n---", 3);
+  if (end === -1) return { data: {}, body: text };
+  const yaml = text.slice(3, end);
+  const body = text.slice(end + 4);
+  const data = {};
+  for (const line of yaml.split(/\r?\n/)) {
+    const m = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
+    if (m && !m[1].startsWith(" ") && m[2] !== "") data[m[1]] = m[2].replace(/^"|"$/g, "");
   }
-  return map;
+  return { data, body };
 }
 
-function parseCategoryHrefs(dataTs) {
-  return [...dataTs.matchAll(/href:\s*"(\/portal\/[^"]+)"/g)].map((m) => m[1]);
-}
-
-async function walkMarkdownFiles(section) {
-  const dir = path.join(CONTENT_ROOT, section);
-  let entries;
-  try {
-    entries = await fs.readdir(dir, { withFileTypes: true });
-  } catch {
-    return [];
-  }
-  return entries
-    .filter((e) => e.isFile() && e.name.endsWith(".md"))
-    .map((e) => e.name.replace(/\.md$/, ""));
+function extractTitle(md) {
+  const m = md.match(/^#\s+(.+)$/m);
+  return m ? m[1].trim() : null;
 }
 
 async function main() {
-  const [contentTs, slugMapTs, dataTs] = await Promise.all([
-    readText("lib/content.ts"),
-    readText("lib/slugMap.ts"),
-    readText("app/portal/data.ts"),
-  ]);
+  const gen = spawnSync(process.execPath, ["scripts/generate-site-data.mjs"], {
+    cwd: ROOT,
+    stdio: "inherit",
+  });
+  if (gen.status !== 0) process.exit(gen.status ?? 1);
 
-  const SECTIONS = parseSections(contentTs);
-  const SLUG_MAP = parseSlugMap(slugMapTs);
-  const NAV_HREFS = new Set(parseCategoryHrefs(dataTs));
-
-  // Every file's guaranteed default URL is /portal/<section>/<slug> (direct
-  // section fallback in app/portal/[category]/[slug]/page.tsx), plus any
-  // friendly aliases from SLUG_MAP that point at it.
-  const aliasesByFile = new Map(); // "section/slug" -> ["/portal/agency/detail", ...]
-  for (const [key, entry] of SLUG_MAP) {
-    const fileKey = `${entry.section}/${entry.file}`;
-    if (!aliasesByFile.has(fileKey)) aliasesByFile.set(fileKey, []);
-    aliasesByFile.get(fileKey).push(`/portal/${key}`);
-  }
-
-  const notInNav = [];
-  const allFileKeys = new Set();
-
-  for (const section of SECTIONS) {
-    const slugs = await walkMarkdownFiles(section);
-    for (const slug of slugs) {
-      const fileKey = `${section}/${slug}`;
-      allFileKeys.add(fileKey);
-      const candidates = [`/portal/${section}/${slug}`, ...(aliasesByFile.get(fileKey) ?? [])];
-      const reachable = candidates.some((href) => NAV_HREFS.has(href));
-      if (!reachable) {
-        notInNav.push({ fileKey, candidates });
-      }
-    }
-  }
-
-  const brokenSlugMap = [...SLUG_MAP.entries()].filter(
-    ([, entry]) => !allFileKeys.has(`${entry.section}/${entry.file}`)
+  const folders = (await fs.readdir(DOCS, { withFileTypes: true })).filter(
+    (e) => e.isDirectory() && !e.name.startsWith("_")
   );
 
-  const brokenNavLinks = [...NAV_HREFS].filter((href) => {
-    const key = href.replace(/^\/portal\//, "");
-    if (SLUG_MAP.has(key)) return false; // resolved via alias
-    const [section, ...rest] = key.split("/");
-    const slug = rest.length ? rest.join("/") : section;
-    return !allFileKeys.has(`${section}/${slug}`);
-  });
+  const problems = [];
+  const hrefs = new Set(["/portal"]);
 
-  let ok = true;
+  for (const folder of folders) {
+    const dir = path.join(DOCS, folder.name);
+    let indexRaw;
+    try {
+      indexRaw = await fs.readFile(path.join(dir, "_index.md"), "utf8");
+    } catch {
+      problems.push(`${folder.name}/ is missing _index.md (topic tile + overview page)`);
+      continue;
+    }
+    const { data, body } = parseFrontmatter(indexRaw);
+    if (!data.slug) problems.push(`${folder.name}/_index.md needs a slug (e.g. agency)`);
+    if (!data.name) problems.push(`${folder.name}/_index.md needs a name`);
+    if (!data.icon) problems.push(`${folder.name}/_index.md needs an icon emoji`);
+    const slug = data.slug || folder.name;
+    hrefs.add(`/portal/${slug}`);
 
-  if (notInNav.length) {
-    ok = false;
-    console.log(`\n⚠ ${notInNav.length} article(s) exist on disk but aren't linked from any menu (app/portal/data.ts):\n`);
-    for (const { fileKey, candidates } of notInNav) {
-      console.log(`  - content/docs/${fileKey}.md`);
-      console.log(`      add to CATEGORIES with href: "${candidates[0]}"`);
+    const files = await fs.readdir(dir);
+    for (const name of files) {
+      if (!name.endsWith(".md") || name === "_index.md") continue;
+      const raw = await fs.readFile(path.join(dir, name), "utf8");
+      const parsed = parseFrontmatter(raw);
+      const title = parsed.data.title || extractTitle(parsed.body);
+      if (!title) problems.push(`${folder.name}/${name} needs a title (Properties or # heading)`);
+      const articleSlug = parsed.data.slug || name.replace(/\.md$/, "");
+      hrefs.add(`/portal/${slug}/${articleSlug}`);
     }
   }
 
-  if (brokenSlugMap.length) {
-    ok = false;
-    console.log(`\n⚠ ${brokenSlugMap.length} lib/slugMap.ts entr${brokenSlugMap.length === 1 ? "y points" : "ies point"} at a file that no longer exists:\n`);
-    for (const [key, entry] of brokenSlugMap) {
-      console.log(`  - "${key}" -> content/docs/${entry.section}/${entry.file}.md (missing)`);
-    }
+  const homeRaw = await fs.readFile(path.join(ROOT, "content", "Home.md"), "utf8");
+  const missingHomeLinks = [...homeRaw.matchAll(/\/portal\/[A-Za-z0-9\-_/]+/g)]
+    .map((m) => m[0].replace(/\/$/, ""))
+    .filter((href, i, all) => all.indexOf(href) === i && !hrefs.has(href));
+
+  for (const href of missingHomeLinks) {
+    problems.push(`Home.md points at ${href} but that page does not exist`);
   }
 
-  if (brokenNavLinks.length) {
-    ok = false;
-    console.log(`\n⚠ ${brokenNavLinks.length} menu link(s) in app/portal/data.ts point at a file that doesn't exist:\n`);
-    for (const href of brokenNavLinks) {
-      console.log(`  - ${href}`);
-    }
-  }
-
-  if (ok) {
-    console.log(`✓ All ${allFileKeys.size} articles are linked from the menu, and every menu link resolves to a file.`);
-  } else {
+  if (problems.length) {
+    console.log(`\n⚠ ${problems.length} issue(s) in Obsidian content:\n`);
+    for (const p of problems) console.log(`  - ${p}`);
     console.log("");
     process.exitCode = 1;
+    return;
   }
+
+  console.log(`✓ ${folders.length} topics are valid and Home.md links resolve.`);
 }
 
 main().catch((err) => {

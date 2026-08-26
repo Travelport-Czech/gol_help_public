@@ -27,27 +27,23 @@ seconds after that.
 
 ## Editing an existing article
 
-1. Open the `content/docs` folder as an Obsidian vault and edit the file
-   directly. Full setup steps: [`obsidian-setup.md`](./obsidian-setup.md).
-2. Save. No need to touch `app/portal/data.ts` for an edit to existing text —
-   only new articles or renamed files need a menu update.
+1. Open this repository as an Obsidian vault and edit the markdown file
+   under `content/docs/`. Full setup: [`obsidian-setup.md`](./obsidian-setup.md).
+2. Save. Existing pages pick up text changes with no extra step.
 3. Commit, push, open a PR, merge to `main` per
    [`editorial-workflow.md`](./editorial-workflow.md).
 
 ## Adding a brand-new article
 
-1. Write it in Obsidian, saved as
-   `content/docs/<section>/<slug>.md` (`<section>` is one of
-   `getting-started`, `configuration`, `operations`, `troubleshooting`,
-   `release-notes`). First line must be a single `# Title`.
-2. Add `{ title: "...", href: "/portal/<section>/<slug>" }` to the right
-   category in `app/portal/data.ts` — this is what makes it show up in the
-   site's sidebar/menu.
-3. Run `npm run check:content` — it flags any article that's on disk but
-   missing from the menu, or any menu entry pointing at a file that doesn't
-   exist. Fix anything it reports.
-4. Commit, push, open a PR, merge — see
+1. In Obsidian, create `content/docs/<nn Topic>/<slug>.md` and insert the
+   **New article** template. First heading must be `# Title`. Set `order` in
+   Properties so it appears in the right place in the menu.
+2. Run `npm run check:content` — it flags missing titles and broken Home.md
+   links. Fix anything it reports.
+3. Commit, push, open a PR, merge — see
    [`editorial-workflow.md`](./editorial-workflow.md).
+
+   You do not edit `app/portal/data.ts`. The menu is generated from the files.
 
 ## Publishing a "What's New" item
 

@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useEffect } from "react";
 import { usePortal } from "./layout";
-import { CATEGORIES, RELEASE_NOTES, WALKTHROUGHS, HEALTH_CHECKS } from "./data";
+import { CATEGORIES, RELEASE_NOTES, WALKTHROUGHS } from "./data";
+import { HOME } from "@/lib/generated/site-data";
 import s from "./portal.module.css";
 
 type SearchResult = {
@@ -25,7 +26,9 @@ const ALL_ARTICLES: SearchResult[] = CATEGORIES.flatMap((cat) =>
   }))
 );
 
-const MOST_VISITED = ALL_ARTICLES.slice(0, 5);
+const MOST_VISITED = HOME.mostVisited
+  .map((href) => ALL_ARTICLES.find((a) => a.href === href))
+  .filter((item): item is SearchResult => Boolean(item));
 
 export default function PortalOverviewPage() {
   const [query, setQuery] = useState("");
@@ -55,15 +58,12 @@ export default function PortalOverviewPage() {
     return groups;
   }, [filteredResults]);
 
-  const healthOk = HEALTH_CHECKS.filter((h) => h.status === "ok").length;
-  const healthTotal = HEALTH_CHECKS.length;
-
   return (
     <>
       {/* ── Hero + Search ── */}
       <div className={s.hero}>
-        <h2 className={s.heroTitle}>Hi, how can we help you?</h2>
-        <p className={s.heroSub}>Search the GOL IBE knowledge base or browse by topic below.</p>
+        <h2 className={s.heroTitle}>{HOME.heroTitle}</h2>
+        <p className={s.heroSub}>{HOME.heroSub}</p>
         <div className={s.searchWrap}>
           <span className={s.searchIcon}>🔍</span>
           <input
@@ -80,7 +80,7 @@ export default function PortalOverviewPage() {
           )}
         </div>
         <div className={s.heroChips}>
-          {["Users", "Service fee", "Working hours", "Email templates", "Cancel booking", "Flush caches"].map((chip) => (
+          {HOME.searchChips.map((chip) => (
             <button key={chip} className={s.heroChip} onClick={() => setQuery(chip)}>
               {chip}
             </button>
@@ -188,7 +188,7 @@ export default function PortalOverviewPage() {
 
               {/* YouTube channel panel */}
               <a
-                href="https://www.youtube.com/@ceetravelsystems"
+                href={HOME.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={s.youtubePanelLink}
@@ -200,8 +200,8 @@ export default function PortalOverviewPage() {
                     </svg>
                   </div>
                   <div className={s.youtubePanelText}>
-                    <span className={s.youtubePanelTitle}>Video tutorials</span>
-                    <span className={s.youtubePanelSub}>Watch step-by-step guides on our YouTube channel →</span>
+                    <span className={s.youtubePanelTitle}>{HOME.youtubeTitle}</span>
+                    <span className={s.youtubePanelSub}>{HOME.youtubeSub}</span>
                   </div>
                 </div>
               </a>

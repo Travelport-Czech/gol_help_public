@@ -1,32 +1,15 @@
-import { notFound } from "next/navigation";
-import { getArticleFromSlugMap } from "@/lib/slugMapContent";
-import { getArticle, isSection, SECTIONS, listArticleSlugs } from "@/lib/content";
-import { SLUG_MAP } from "@/lib/slugMap";
+import { getArticle, listArticleSlugs, listCategorySlugs } from "@/lib/content";
 import ArticlePageContent from "../../_articlePageContent";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  const fromSlugMap = Object.keys(SLUG_MAP)
-    .filter((k) => k.includes("/"))
-    .map((k) => {
-      const [category, ...rest] = k.split("/");
-      return { category, slug: rest.join("/") };
-    });
-
-  const fromSections: { category: string; slug: string }[] = [];
-  for (const section of SECTIONS) {
-    const slugs = await listArticleSlugs(section);
-    for (const slug of slugs) {
-      fromSections.push({ category: section, slug });
+  const params: { category: string; slug: string }[] = [];
+  for (const category of await listCategorySlugs()) {
+    for (const slug of await listArticleSlugs(category)) {
+      params.push({ category, slug });
     }
   }
-
-  const seen = new Set<string>();
-  return [...fromSlugMap, ...fromSections].filter(({ category, slug }) => {
-    const key = `${category}/${slug}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+  return params;
 }
 
 export async function generateMetadata({
@@ -35,10 +18,7 @@ export async function generateMetadata({
   params: Promise<{ category: string; slug: string }>;
 }) {
   const { category, slug } = await params;
-  const key = `${category}/${slug}`;
-  const article =
-    (await getArticleFromSlugMap(key)) ??
-    (isSection(category) ? await getArticle(category, slug) : null);
+  const article = await getArticle(category, slug);
   if (!article) return {};
   return { title: article.title };
 }
@@ -49,12 +29,7 @@ export default async function CategorySlugPage({
   params: Promise<{ category: string; slug: string }>;
 }) {
   const { category, slug } = await params;
-  const key = `${category}/${slug}`;
-
-  const article =
-    (await getArticleFromSlugMap(key)) ??
-    (isSection(category) ? await getArticle(category, slug) : null);
-
+  const article = await getArticle(category, slug);
   if (!article) notFound();
-  return <ArticlePageContent article={article} href={`/portal/${key}`} />;
+  return <ArticlePageContent article={article} href={`/portal/${category}/${slug}`} />;
 }

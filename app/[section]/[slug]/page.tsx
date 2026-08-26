@@ -1,12 +1,10 @@
 import { ClientRedirect } from "@/app/_components/ClientRedirect";
-import { SECTIONS, isSection, listArticleSlugs } from "@/lib/content";
-import { notFound } from "next/navigation";
+import { listArticleSlugs, listCategorySlugs } from "@/lib/content";
 
 export async function generateStaticParams() {
   const params: { section: string; slug: string }[] = [];
-  for (const section of SECTIONS) {
-    const slugs = await listArticleSlugs(section);
-    for (const slug of slugs) {
+  for (const section of await listCategorySlugs()) {
+    for (const slug of await listArticleSlugs(section)) {
       params.push({ section, slug });
     }
   }
@@ -19,6 +17,5 @@ export default async function ArticleRedirectPage({
   params: Promise<{ section: string; slug: string }>;
 }) {
   const { section, slug } = await params;
-  if (!isSection(section)) notFound();
   return <ClientRedirect to={`/portal/${section}/${slug}`} />;
 }

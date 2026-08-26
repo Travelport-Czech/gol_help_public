@@ -9,7 +9,12 @@ import { getArticleVideos } from "@/lib/articleVideos";
 import { CATEGORIES } from "./data";
 import s from "./portal-layout.module.css";
 
-type Article = { title: string; body: string; bodyWithoutH1: string };
+type Article = {
+  title: string;
+  body: string;
+  bodyWithoutH1: string;
+  videos?: { label: string; youtubeId: string }[];
+};
 
 export default function ArticlePageContent({
   article,
@@ -22,7 +27,7 @@ export default function ArticlePageContent({
     (cat) => cat.href === href || cat.articles.some((a) => a.href === href)
   );
   const isCategoryPage = parentCat?.href === href;
-  const videos = getArticleVideos(href);
+  const videos = article.videos?.length ? article.videos : getArticleVideos(href);
 
   return (
     <div className={s.articleWrap}>
