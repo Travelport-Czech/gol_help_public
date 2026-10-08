@@ -84,6 +84,23 @@ export const HOME = {
       label: "CEE product web",
       href: "https://www.cee-systems.com/"
     }
+  ],
+  partnerForms: [
+    {
+      title: "GOL IBE implementation",
+      desc: "Order a new GOL IBE booking engine for a travel agency.",
+      href: "https://form.jotform.com/222273605035347"
+    },
+    {
+      title: "Tripgate implementation",
+      desc: "Order a new Tripgate setup for a travel agency.",
+      href: "https://form.jotform.com/251812309188358"
+    },
+    {
+      title: "New dealer on Tripgate",
+      desc: "Add a new dealer to an existing Tripgate agency.",
+      href: "https://form.jotform.com/252361279585062"
+    }
   ]
 };
 
@@ -155,6 +172,10 @@ export const CATEGORIES = [
         href: "/portal/dealers/commission"
       },
       {
+        title: "Content management",
+        href: "/portal/dealers/content-management"
+      },
+      {
         title: "Multi-currency setup",
         href: "/portal/dealers/multi-currency"
       },
@@ -217,10 +238,6 @@ export const CATEGORIES = [
       {
         title: "Change background on front-end",
         href: "/portal/dealers/background"
-      },
-      {
-        title: "Content management",
-        href: "/portal/dealers/content-management"
       }
     ]
   },

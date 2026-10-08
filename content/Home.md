@@ -68,6 +68,19 @@ external_links:
   -
     label: CEE product web
     href: "https://www.cee-systems.com/"
+partner_forms:
+  -
+    title: GOL IBE implementation
+    desc: Order a new GOL IBE booking engine for a travel agency.
+    href: "https://form.jotform.com/222273605035347"
+  -
+    title: Tripgate implementation
+    desc: Order a new Tripgate setup for a travel agency.
+    href: "https://form.jotform.com/251812309188358"
+  -
+    title: New dealer on Tripgate
+    desc: Add a new dealer to an existing Tripgate agency.
+    href: "https://form.jotform.com/252361279585062"
 ---
 # Home page
 

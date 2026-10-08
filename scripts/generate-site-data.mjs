@@ -14,7 +14,7 @@ const OUT_DIR = path.join(ROOT, "lib", "generated");
 const OUT_FILE = path.join(OUT_DIR, "site-data.ts");
 
 function parseFrontmatter(raw) {
-  const text = raw.replace(/^\uFEFF/, "");
+  const text = raw.replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
   if (!text.startsWith("---")) return { data: {}, body: text };
   const end = text.indexOf("\n---", 3);
   if (end === -1) return { data: {}, body: text };
@@ -143,6 +143,7 @@ async function loadHome() {
     walkthroughs: Array.isArray(data.walkthroughs) ? data.walkthroughs : [],
     appTabs: Array.isArray(data.app_tabs) ? data.app_tabs : [],
     externalLinks: Array.isArray(data.external_links) ? data.external_links : [],
+    partnerForms: Array.isArray(data.partner_forms) ? data.partner_forms : [],
   };
 }
 

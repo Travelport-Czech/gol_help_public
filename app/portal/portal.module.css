@@ -539,6 +539,10 @@
 /* ── Action bar ─────────────────────────────────────── */
 .actionBar { display: flex; gap: 12px; flex-wrap: wrap; }
 
+.partnerFormsLink { margin: 28px 0 0; text-align: right; font-size: 12px; }
+.partnerFormsLink a { color: #8a94a8; }
+.partnerFormsLink a:hover { color: #e85e20; }
+
 .btnPrimary {
   display: inline-flex;
   align-items: center;

@@ -233,6 +233,11 @@ export default function PortalOverviewPage() {
                 {contactLabel}
               </button>
             </div>
+
+            {/* Partner order forms — deliberately low-key */}
+            <p className={s.partnerFormsLink}>
+              <Link href="/portal/forms">Partner order forms</Link>
+            </p>
           </>
         )}
 
