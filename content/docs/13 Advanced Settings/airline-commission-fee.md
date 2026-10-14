@@ -6,7 +6,7 @@ order: 6
 
 This is a special alternative to adding a standard service fee. Instead of increasing the ticket price, you use the airline commission as your profit — useful when you want to display the raw GDS price to customers while knowing the airline pays you a commission (e.g., 9%).
 
-In this case, set your service fee to 0 following the steps in the [Service fees](/portal/configuration/1-gol-ibe-3-gol-ibe-basic-settings-how-to-set-up-service-fee) article. This way the price is not increased — however, your earnings per ticket will not be visible in the bookings list, and you won't be able to lower the ticket price by sharing part of your commission.
+In this case, set your service fee to 0 following the steps in the **Service fees** article. This way the price is not increased — however, your earnings per ticket will not be visible in the bookings list, and you won't be able to lower the ticket price by sharing part of your commission.
 
 ## Sharing commission with dealers and customers
 

@@ -10,7 +10,7 @@ When creating or editing a user in GOL IBE, you assign their **rights** — the 
 
 ## Assigning rights
 
-Rights are selected during user creation (see [Add a New User](add-user.md)) or by editing an existing user in **Users**.
+Rights are selected during user creation or by editing an existing user in **Users**.
 
 Click the title of each right to toggle it on or off for that user.
 

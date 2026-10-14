@@ -23,5 +23,3 @@ Once a booking appears in the admin console, you:
 - Verify the client and discuss payment
 - Update payment status or add remarks (EDIT)
 - Cancel the booking if needed (CANCEL)
-
-See also: [How to handle bookings in the Admin Console](/portal/getting-started/1-gol-ibe-2-gol-ibe-step-by-step-reservations-gol-ibe-how-to-handle-bookings-in-admin-console)

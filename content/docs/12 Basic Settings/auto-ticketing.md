@@ -18,7 +18,7 @@ Auto-ticketing is configured in **Agency → Agency detail**:
 
 ## GTID printer codes (Galileo/Travelport)
 
-To issue e-tickets automatically via the Galileo GDS, your **GTID printer codes** must be entered in the agency settings. See [Where to insert GTID printers](/portal/getting-started/1-gol-ibe-2-gol-ibe-step-by-step-gol-ibe-agency-where-to-insert-gtid-printers).
+To issue e-tickets automatically via the Galileo GDS, your **GTID printer codes** must be entered in the agency settings.
 
 ## Working hours and auto-ticketing
 

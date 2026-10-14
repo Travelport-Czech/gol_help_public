@@ -19,7 +19,8 @@
     "whats-new:add": "node scripts/whats-new/add.mjs",
     "whats-new:review": "node scripts/whats-new/review.mjs",
     "whats-new:publish": "node scripts/whats-new/publish.mjs",
-    "check:content": "node scripts/check-content-sync.mjs"
+    "check:content": "node scripts/check-content-sync.mjs",
+    "check:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",

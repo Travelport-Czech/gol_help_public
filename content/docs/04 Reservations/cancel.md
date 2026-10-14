@@ -24,4 +24,4 @@ If a booking passes its due date and remains unpaid, the carrier may charge you 
 - Check the list of bookings on a daily basis.
 - Cancel all bookings whose due date has passed and that remain unpaid.
 
-> Export the booking list to CSV or Excel to review overdue cases systematically. See [How to export the list of bookings](/portal/getting-started/export-bookings).
+> Export the booking list to CSV or Excel to review overdue cases systematically.
